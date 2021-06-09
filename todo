@@ -1,0 +1,9 @@
+ft_parsing
+{
+LIRE le fichier ligne par ligne
+SI la ligne est correcte
+	INSERER l'objet dans la liste
+SINON
+	LIBERER la memoire
+	Exit 0
+}
