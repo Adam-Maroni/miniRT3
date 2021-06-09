@@ -1,0 +1,101 @@
+DESCRIPTIFS DES FICHIERS:
+	rtfiles/1.rt = 
+	utils/ft_check* = check la validité du fichier entré en vérifiant le contenu de la structure parser
+	utils/ft_init_parser* = initialise les composantes du parser
+	utils/ft_error_met.c = appelée quand une erreure est rencontrée: renvoie un message d'erreur, libère la mémoire et interromp le programme
+	utils/ft_free_lineaddress = libère la mémoire
+	utils/parsing.c = Contient les fonctions permettant de remplir la structure parser
+	tests/main_tester_parsing_linkedlist.c = test de parsing avec linked list
+
+
+DESCRPITIF DES FONCTIONS:
+	ft_parsing: Prend en entree un fichier.rt et retourne le premier element d'une liste chainee dont les noeuds sont le parsings des lignes.
+
+
+DESCRPITIF DES OBJETS:
+	parser_resolution.r = resolution
+	parser_resolution.r_w = resolution width
+	parser_resolution.r_h = resolution height
+
+	parser_ambient.a = ambient lighting
+	parser_ambient.a_r = ambient lighting ratio
+	parser_ambient.a_rgb_r = ambient lighting red color
+	parser_ambient.a_rgb_g = ambient lighting green color
+	parser_ambient.a_rgb_b = ambient lighting blue color
+
+	parser_camera.c = camera
+	parser_camera.c_pov_x = viewpoint coordinate x
+	parser_camera.c_pov_y = viewpoint coordinate y
+	parser_camera.c_pov_z = viewpoint coordinate z
+	parser_camera.c_nvector_x = 3d normalized orientation vector x coordinate
+	parser_camera.c_nvector_y = 3d normalized orientation vector y coordinate
+	parser_camera.c_nvector_z = 3d normalized orientation vector z coordinate
+	parser_camera.fov = Camera FOV
+
+	parser_light.l = light
+	parser_light.l_p_x = coordinates x of the light point
+	parser_light.l_p_y = coordinates y of the light point
+	parser_light.l_p_z = coordinates z of the light point
+	parser_light.l_r = light brightness ratio range
+	parser_light.l_rgb_r = light red color
+	parser_light.l_rgb_g = light green color
+	parser_light.l_rgb_b = light blue color
+
+	parser_plane.pl = plane
+	parser_plane.pl_x = plane coordinate x
+	parser_plane.pl_y = plane coordinate y
+	parser_plane.pl_z = plane coordinate z
+	parser_plane.pl_rgb_r
+	parser_plane.pl_rgb_g
+	parser_plane.pl_rgb_b
+	parser_plane.pl_nvector_x = plane 3d normalized orientation vector x coordinate
+	parser_plane.pl_nvector_y = plane 3d normalized orientation vector y coordinate
+	parser_plane.pl_nvector_z = plane 3d normalized orientation vector z coordinate
+
+	parser_sphere.sp = sphere
+	parser_sphere.sp_x = shere center coodinate x
+	parser_sphere.sp_y = shere center coodinate y
+	parser_sphere.sp_z = shere center coodinate z
+	parser_sphere.sp_d = sphere diamater
+	parser_sphere.sp_rgb_r = sphere color red
+	parser_sphere.sp_rgb_g = sphere color green
+	parser_sphere.sp_rgb_b = sphere color blue
+
+	parser_square.sq = square
+	parser_square.sq_x = square's center coordinate x
+	parser_square.sq_y = square's center coordinate y
+	parser_square.sq_z = square's center coordinate z
+	parser_square.sq_nvector_x = square 3d normalized orientation vector x coordinate
+	parser_square.sq_nvector_y = square 3d normalized orientation vector y coordinate
+	parser_square.sq_nvector_z = square 3d normalized orientation vector z coordinate
+	parser_square.sq_sd = square side size
+	parser_square.sq_rgb_r = square color red
+	parser_square.sq_rgb_g = square color green
+	parser_square.sq_rgb_b = square color blue
+
+	parser_cylinder.cy = cylinder
+	parser_cylinder.cy_x = cylinder coordinate x
+	parser_cylinder.cy_y = cylinder coordinate y
+	parser_cylinder.cy_z = cylinder coordinate z
+	parser_cylinder.cy_nvector_x = cylinder 3d normalized orientation vector x coordinate
+	parser_cylinder.cy_nvector_y = cylinder 3d normalized orientation vector y coordinate
+	parser_cylinder.cy_nvector_z = cylinder 3d normalized orientation vector z coordinate
+	parser_cylinder.cy_d = cylinder diamater
+	parser_cylinder.cy_h = cylinder height
+	parser_cylinder.cy_rgb_r = cylinder color red
+	parser_cylinder.cy_rgb_g = cylinder color green
+	parser_cylinder.cy_rgb_b = cylinder color blue
+
+	parser_triangle.tr = triangle
+	parser_triangle.tr_1_x = triangle 1st point coordinate x
+	parser_triangle.tr_1_y = triangle 1st point coordinate y
+	parser_triangle.tr_1_z = triangle 1st point coordinate z
+	parser_triangle.tr_2_x = triangle 2nd point coordinate x
+	parser_triangle.tr_2_y = triangle 2nd point coordinate y
+	parser_triangle.tr_2_z = triangle 2nd point coordinate z
+	parser_triangle.tr_3_x = triangle 3rd point coordinate x
+	parser_triangle.tr_3_y = triangle 3rd point coordinate y
+	parser_triangle.tr_3_z = triangle 3rd point coordinate z
+	parser_triangle.tr_rgb_r = triangle 1st point color red
+	parser_triangle.tr_rgb_g = triangle 1st point color green
+	parser_triangle.tr_rgb_b = triangle 1st point color blue

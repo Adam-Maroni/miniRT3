@@ -7,3 +7,8 @@ SINON
 	LIBERER la memoire
 	Exit 0
 }
+
+
+
+
+ft_check_line: check la ligne et renvoie le parser mis en forme si correcte
