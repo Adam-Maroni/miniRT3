@@ -157,4 +157,27 @@ typedef struct s_list_minirt{
 } t_list_minirt;
 
 
+
+t_list_minirt	*ft_lstlast_minirt(t_list_minirt *lst);
+void			ft_lstadd_back_minirt(t_list_minirt **head, t_list_minirt *new);
+void	ft_lstadd_front_minirt(t_list_minirt **alst, t_list_minirt *new);
+void	ft_lstclear_minirt(t_list_minirt **lst, void (*del)(void*));
+void	ft_lstdelone_minirt(t_list_minirt *lst, void (*del)(void*));
+void	ft_lstiter_minirt(t_list_minirt *lst, void (*f)(void *));
+t_list_minirt	*ft_lstmap_minirt(t_list_minirt *lst, void *(*f)(void *), void (*del)(void *));
+t_list_minirt	*ft_lstnew_minirt(void *content);
+int	ft_lstsize_minirt(t_list_minirt *lst);
+
+
+
+void ft_init_parser_ambient(t_parser_ambient *parser_ambient);
+void ft_init_parser_camera(t_parser_camera *parser_camera);
+void ft_init_parser_cylinder(t_parser_cylinder *parser_cylinder);
+void ft_init_parser_global(t_parser_global *parser_global);
+void ft_init_parser_light(t_parser_light *parser_light);
+void ft_init_parser_plane(t_parser_plane *parser_plane);
+void ft_init_parser_resolution(t_parser_resolution *parser_resolution);
+void ft_init_parser_sphere(t_parser_sphere *parser_sphere);
+void ft_init_parser_square(t_parser_square *parser_square);
+void ft_init_parser_triangle(t_parser_triangle *parser_triangle);;
 #endif

@@ -1,5 +1,14 @@
 #include "../minirt.h"
 
+t_list_minirt	*ft_lstlast_minirt(t_list_minirt *lst)
+{
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
+
 void			ft_lstadd_back_minirt(t_list_minirt **head, t_list_minirt *new)
 {
 	t_list_minirt *lst;
@@ -9,15 +18,6 @@ void			ft_lstadd_back_minirt(t_list_minirt **head, t_list_minirt *new)
 	else
 		lst->next = new;
 	new->next = NULL;
-}
-
-t_list_minirt	*ft_lstlast_minirt(t_list_minirt *lst)
-{
-	if (lst == NULL)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
 }
 
 void	ft_lstadd_front_minirt(t_list_minirt **alst, t_list_minirt *new)

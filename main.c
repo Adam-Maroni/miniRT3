@@ -2,10 +2,6 @@
 
 
 
-
-
-
-
 void ft_error_met(char *message)
 {
 	printf("%s\n", message);
@@ -19,7 +15,7 @@ void ft_init_lineaddress(char *(*lineaddress)[LINES])
 	
 	i = -1;
 	while (++i < LINES)
-		(*lineaddress)[j] = NULL;
+		(*lineaddress)[i] = NULL;
 }
 
 void ft_free_lineaddress(char *(*lineaddress)[LINES])
@@ -28,14 +24,51 @@ void ft_free_lineaddress(char *(*lineaddress)[LINES])
 	
 	i = LINES;
 	while (--i >= 0)
-		free ((*lineaddress)[j]);
+		free ((*lineaddress)[i]);
 	ft_init_lineaddress(lineaddress);
 }
 
-t_parser_global	ft_check_line(char *line)
+int ft_check_resolution(char *line)
+{
+	int width;
+	int height;
+
+	width = 0;
+	height = 0;
+	if (line[0] == 'R' && ft_isspace((int)(line[1])))
+	{
+		line++;
+		width = ft_atoi_retpos(&line);
+		height = ft_atoi_retpos(&line);
+		if (width <= 0 || height <= 0)
+			ft_error_met("Resolution invalide.");
+		return (1);
+	}
+	return (0);
+}
+
+t_parser_global ft_parsing_resolution(char *line)
+{
+	t_parser_global content;
+	
+	int width;
+	int height;
+
+
+	ft_init_parser_global(&content);
+	line++;
+	width = ft_atoi_retpos(&line);
+	height = ft_atoi_retpos(&line);
+	content.parser_resolution.r = 1;
+	content.parser_resolution.r_w = width;
+	content.parser_resolution.r_h = height;
+	return (content);
+}
+
+void	ft_check_line(char *line, t_parser_global *content)
 {
 	if (ft_check_resolution(line))
-		return (ft_parsing_resolution(line));
+		*content = ft_parsing_resolution(line);
 	//else if (line[0] == 'A' && ft_isspace((int)(line[1])))
 	//else if (line[0] == 'c' && ft_isspace((int)(line[1])))
 	//else if (line[0] == 'l' && ft_isspace((int)(line[1])))
@@ -45,23 +78,34 @@ t_parser_global	ft_check_line(char *line)
 	//else if (line[0] == 'c' && line[1] == 'y' && ft_isspace((int)(line[2])))
 	//else if (line[0] == 't' && line[1] == 'r' && ft_isspace((int)(line[2])))
 	else
-		return (NULL);
+		content = NULL;
 }
 
-t_list_minirt ft_parsing(char *filepath)
+t_list_minirt *ft_parsing(char *filepath)
 {
 	char *lineaddress[LINES];
 	int	j;
-	
+	int fd;
 	t_list_minirt *head;
-	t_parser_global *content;
+	t_parser_global *ptcontent;
+	t_parser_global content;
+	ptcontent = &content;
+
 	j = 0;
+	head = NULL;
 	ft_init_lineaddress(&lineaddress);
+	ft_init_parser_global(ptcontent);
 	if (!(fd = open(filepath, O_RDONLY)))
 		ft_error_met("Le fichier n'existe pas ou n'est pas lisible.");
-	while (get_next_line(fd, lineaddress[j]))
-		if (!(content = ft_check_line(lineaddress[j])))
+	while (get_next_line(fd, &lineaddress[j]))
+	{
+		ft_check_line(lineaddress[j], ptcontent);
+		if (!ptcontent)
 			ft_error_met("Le fichier n'est pas valide.");
+		ft_lstadd_back_minirt(&head,ft_lstnew_minirt(ptcontent));
+		j++;
+	}
+	close(fd);
 	ft_free_lineaddress(&lineaddress);
 	return (head);
 }
