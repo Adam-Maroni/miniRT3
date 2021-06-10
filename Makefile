@@ -14,7 +14,7 @@ SRC_GNL = ./gnl/get_next_line.c\
 SRC_UTILS = utils/linkedlist.c\
 utils/ft_init*.c
 
-SRC_ALL = $(SRC_GNL) $(SRC_UTILS)
+SRC_ALL = $(SRC_GNL) $(SRC_UTILS) tmp/*.c
 
 OUT = minirt
 
