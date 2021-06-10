@@ -29,6 +29,9 @@ MAIN = main.c
 test: compile_libft compile_minilibx $(SRC_ALL)
 	$(CC) $(FLAGS) $(MEM_CHECK) -D BUFFER_SIZE=$(BUFFER_SIZE_GNL) $(SRC_ALL) $(MAIN) -o $(OUT) $(LIB)
 	./$(OUT) $(RT_FILE)
+gdb_test: compile_libft compile_minilibx $(SRC_ALL)
+	$(CC) $(FLAGS) $(MEM_CHECK) -D BUFFER_SIZE=$(BUFFER_SIZE_GNL) $(SRC_ALL) $(MAIN) -o $(OUT) $(LIB)
+	gdb --args ./$(OUT) $(RT_FILE)
 
 clean:
 	(cd ./libft && make clean)

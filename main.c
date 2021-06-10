@@ -12,7 +12,7 @@ void ft_error_met(char *message)
 void ft_init_lineaddress(char *(*lineaddress)[LINES])
 {
 	int i;
-	
+
 	i = -1;
 	while (++i < LINES)
 		(*lineaddress)[i] = NULL;
@@ -21,7 +21,7 @@ void ft_init_lineaddress(char *(*lineaddress)[LINES])
 void ft_free_lineaddress(char *(*lineaddress)[LINES])
 {
 	int i;
-	
+
 	i = LINES;
 	while (--i >= 0)
 		free ((*lineaddress)[i]);
@@ -50,7 +50,7 @@ int ft_check_resolution(char *line)
 t_parser_global ft_parsing_resolution(char *line)
 {
 	t_parser_global content;
-	
+
 	int width;
 	int height;
 
@@ -89,8 +89,8 @@ t_list_minirt *ft_parsing(char *filepath)
 	t_list_minirt *head;
 	t_parser_global *ptcontent;
 	t_parser_global content;
-	ptcontent = &content;
 
+	ptcontent = &content; 
 	j = 0;
 	head = NULL;
 	ft_init_lineaddress(&lineaddress);
@@ -101,7 +101,10 @@ t_list_minirt *ft_parsing(char *filepath)
 	{
 		ft_check_line(lineaddress[j], ptcontent);
 		if (!ptcontent)
+		{
+			ft_free_lineaddress(&lineaddress);
 			ft_error_met("Le fichier n'est pas valide.");
+		}
 		ft_lstadd_back_minirt(&head,ft_lstnew_minirt(ptcontent));
 		j++;
 	}
@@ -110,11 +113,13 @@ t_list_minirt *ft_parsing(char *filepath)
 	return (head);
 }
 
- 
+
 int main(int argc, char **argv)
 {
+	t_list_minirt *head = NULL;
 	if (argc != 2)
 		ft_error_met("Trop d'argument passe en parametre");
-	ft_parsing(argv[1]);
+	head = ft_parsing(argv[1]);
+	ft_lstclear_minirt(&head, &ft_del_node_lstminirt);
 	return (0);
 }

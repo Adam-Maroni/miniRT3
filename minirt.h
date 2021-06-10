@@ -167,6 +167,7 @@ void	ft_lstiter_minirt(t_list_minirt *lst, void (*f)(void *));
 t_list_minirt	*ft_lstmap_minirt(t_list_minirt *lst, void *(*f)(void *), void (*del)(void *));
 t_list_minirt	*ft_lstnew_minirt(void *content);
 int	ft_lstsize_minirt(t_list_minirt *lst);
+void ft_del_node_lstminirt(void *content);
 
 
 

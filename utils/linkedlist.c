@@ -1,5 +1,10 @@
 #include "../minirt.h"
 
+void ft_del_node_lstminirt(void *content)
+{
+	ft_init_parser_global(content);
+}
+
 t_list_minirt	*ft_lstlast_minirt(t_list_minirt *lst)
 {
 	if (lst == NULL)
