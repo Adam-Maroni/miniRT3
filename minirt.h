@@ -90,9 +90,9 @@ typedef struct s_parser_cylinder{
 	float cy_x;
 	float cy_y;
 	float cy_z;
-	float cy_nvector_x;
-	float cy_nvector_y;
-	float cy_nvector_z;
+	float cy_n_vector_x;
+	float cy_n_vector_y;
+	float cy_n_vector_z;
 	float cy_d;
 	float cy_h;
 } t_parser_cylinder;
@@ -181,4 +181,5 @@ void ft_init_parser_resolution(t_parser_resolution *parser_resolution);
 void ft_init_parser_sphere(t_parser_sphere *parser_sphere);
 void ft_init_parser_square(t_parser_square *parser_square);
 void ft_init_parser_triangle(t_parser_triangle *parser_triangle);;
+void ft_error_met(char *message);
 #endif

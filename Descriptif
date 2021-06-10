@@ -37,30 +37,30 @@ DESCRPITIF DES OBJETS:
 	parser_camera.c_pov_x = viewpoint coordinate x
 	parser_camera.c_pov_y = viewpoint coordinate y
 	parser_camera.c_pov_z = viewpoint coordinate z
-	parser_camera.c_nvector_x = 3d normalized orientation vector x coordinate
-	parser_camera.c_nvector_y = 3d normalized orientation vector y coordinate
-	parser_camera.c_nvector_z = 3d normalized orientation vector z coordinate
-	parser_camera.fov = Camera FOV
+	parser_camera.c_nvector_x = 3d normalized orientation vector x coordinate float [-1,1]
+	parser_camera.c_nvector_y = 3d normalized orientation vector y coordinate float [-1,1]
+	parser_camera.c_nvector_z = 3d normalized orientation vector z coordinate float [-1,1]
+	parser_camera.fov = Camera FOV int [0,180]
 
 	parser_light.l = light
 	parser_light.l_p_x = coordinates x of the light point
 	parser_light.l_p_y = coordinates y of the light point
 	parser_light.l_p_z = coordinates z of the light point
-	parser_light.l_r = light brightness ratio range
-	parser_light.l_rgb_r = light red color
-	parser_light.l_rgb_g = light green color
-	parser_light.l_rgb_b = light blue color
+	parser_light.l_r = light brightness ratio range float [0,1]
+	parser_light.l_rgb_r = light red color int [0,255]
+	parser_light.l_rgb_g = light green color int [0,255]
+	parser_light.l_rgb_b = light blue color int [0,255]
 
 	parser_plane.pl = plane
 	parser_plane.pl_x = plane coordinate x
 	parser_plane.pl_y = plane coordinate y
 	parser_plane.pl_z = plane coordinate z
-	parser_plane.pl_rgb_r
-	parser_plane.pl_rgb_g
-	parser_plane.pl_rgb_b
-	parser_plane.pl_nvector_x = plane 3d normalized orientation vector x coordinate
-	parser_plane.pl_nvector_y = plane 3d normalized orientation vector y coordinate
-	parser_plane.pl_nvector_z = plane 3d normalized orientation vector z coordinate
+	parser_plane.pl_rgb_r float [0,255]
+	parser_plane.pl_rgb_g float [0,255]
+	parser_plane.pl_rgb_b float [0,255]
+	parser_plane.pl_nvector_x = plane 3d normalized orientation vector x coordinate float [-1,1]
+	parser_plane.pl_nvector_y = plane 3d normalized orientation vector y coordinate float [-1,1]
+	parser_plane.pl_nvector_z = plane 3d normalized orientation vector z coordinate float [-1,1]
 
 	parser_sphere.sp = sphere
 	parser_sphere.sp_x = shere center coodinate x

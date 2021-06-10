@@ -1,6 +1,6 @@
 La transition permettant de passer de la structure a la liste chaine semble fonctionner, reste a completer les regles de parsing
 
-
+REMPLACER la fonction ft_check_line par ft_is_line_correct et ajouter une fonction ft_parse_line
 
 
 
