@@ -41,7 +41,7 @@ int ft_check_resolution(char *line)
 		width = ft_atoi_retpos(&line);
 		height = ft_atoi_retpos(&line);
 		if (width <= 0 || height <= 0)
-			ft_error_met("Resolution invalide.");
+			return (-1);
 		return (1);
 	}
 	return (0);
@@ -65,10 +65,15 @@ t_parser_global ft_parsing_resolution(char *line)
 	return (content);
 }
 
+
+
+
 void	ft_check_line(char *line, t_parser_global *content)
 {
 	if (ft_check_resolution(line))
 		*content = ft_parsing_resolution(line);
+	else if (ft_check_resolution(line) < 0)
+		ft_error_met("Resolution invalide."); //+LIBERER LA MEMOIRE
 	//else if (line[0] == 'A' && ft_isspace((int)(line[1])))
 	//else if (line[0] == 'c' && ft_isspace((int)(line[1])))
 	//else if (line[0] == 'l' && ft_isspace((int)(line[1])))
@@ -102,6 +107,7 @@ t_list_minirt *ft_parsing(char *filepath)
 		ft_check_line(lineaddress[j], ptcontent);
 		if (!ptcontent)
 		{
+			ft_lstclear_minirt(&head, &ft_del_node_lstminirt);
 			ft_free_lineaddress(&lineaddress);
 			ft_error_met("Le fichier n'est pas valide.");
 		}

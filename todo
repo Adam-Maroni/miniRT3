@@ -1,14 +1,9 @@
-ft_parsing
-{
-LIRE le fichier ligne par ligne
-SI la ligne est correcte
-	INSERER l'objet dans la liste
-SINON
-	LIBERER la memoire
-	Exit 0
-}
+La transition permettant de passer de la structure a la liste chaine semble fonctionner, reste a completer les regles de parsing
 
 
 
 
-ft_check_line: check la ligne et renvoie le parser mis en forme si correcte
+
+
+
+

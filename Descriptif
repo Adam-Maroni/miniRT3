@@ -9,7 +9,17 @@ DESCRIPTIFS DES FICHIERS:
 
 
 DESCRPITIF DES FONCTIONS:
-	ft_parsing: Prend en entree un fichier.rt et retourne le premier element d'une liste chainee dont les noeuds sont le parsings des lignes.
+	//Prend en entree un fichier.rt et retourne le premier element d'une liste chainee dont les noeuds sont le parsings des lignes.
+	FT_PARSING
+	{
+		LIRE le fichier ligne par ligne
+		SI la ligne est correcte
+			INSERER l'objet dans la liste
+		SINON
+			LIBERER la memoire
+			Exit 0
+	}
+	ft_check_line: check la ligne et renvoie le parser mis en forme si correcte
 
 
 DESCRPITIF DES OBJETS:
