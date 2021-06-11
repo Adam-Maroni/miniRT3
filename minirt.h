@@ -30,9 +30,9 @@ typedef struct s_parser_camera{
 	float c_pov_x;
 	float c_pov_y;
 	float c_pov_z;
-	float c_nvector_x;
-	float c_nvector_y;
-	float c_nvector_z;
+	float c_n_vector_x;
+	float c_n_vector_y;
+	float c_n_vector_z;
 	int c_fov;
 } t_parser_camera;
 
@@ -66,9 +66,9 @@ typedef struct s_parser_plane{
 	int pl_rgb_r;
 	int pl_rgb_g;
 	int pl_rgb_b;
-	float pl_nvector_x;
-	float pl_nvector_y;
-	float pl_nvector_z;
+	float pl_n_vector_x;
+	float pl_n_vector_y;
+	float pl_n_vector_z;
 } t_parser_plane;
 
 typedef struct s_parser_square{
@@ -76,9 +76,9 @@ typedef struct s_parser_square{
 	float sq_x;
 	float sq_y;
 	float sq_z;
-	float sq_nvector_x;
-	float sq_nvector_y;
-	float sq_nvector_z;
+	float sq_n_vector_x;
+	float sq_n_vector_y;
+	float sq_n_vector_z;
 	float sq_sd;
 	int sq_rgb_r;
 	int sq_rgb_g;
@@ -157,6 +157,7 @@ typedef struct s_list_minirt{
 } t_list_minirt;
 
 
+typedef char (*t_lineaddress)[LINES];
 
 t_list_minirt	*ft_lstlast_minirt(t_list_minirt *lst);
 void			ft_lstadd_back_minirt(t_list_minirt **head, t_list_minirt *new);
@@ -182,31 +183,21 @@ void ft_init_parser_sphere(t_parser_sphere *parser_sphere);
 void ft_init_parser_square(t_parser_square *parser_square);
 void ft_init_parser_triangle(t_parser_triangle *parser_triangle);;
 void ft_error_met(char *message);
-void ft_init_lineaddress(char *(*lineaddress)[LINES]);
+void ft_error_met(char *message);
 void ft_init_lineaddress(char *(*lineaddress)[LINES]);
 void ft_free_lineaddress(char *(*lineaddress)[LINES]);
 int ft_check_resolution(char *line);
-t_parser_global ft_parse_resolution(char *line);
 int ft_check_ambient(char *line);
-t_parser_global *ft_parse_ambient(char *line);
 int ft_check_camera(char *line);
-t_parser_global *ft_parse_camera(char *line);
-int ft_is_line_correct(char *line);
-t_parser_global *ft_parse_line(char *line, int parse_choice);
-void ft_terminate_with_error(char *message, t_lineaddress *lineaddress, t_list_minirt **head, void (*ft_del_node_lstminirt)(void*));
+void ft_terminate_with_error(char *message, char *(*lineaddress)[66], t_list_minirt **head, void (*ft_del_node_lstminirt));
 int ft_check_light(char *line);
 int ft_check_plane(char *line);
-void ft_free_lineaddress(char *(*lineaddress)[LINES]);
+int ft_check_sphere(char *line);
+t_parser_global *ft_parse_resolution(char *line);
 t_parser_global *ft_parse_ambient(char *line);
 t_parser_global *ft_parse_camera(char *line);
-t_parser_global *ft_parse_line(char *line, int parse_choice);
-t_parser_global *ft_parse_line(char *line, int parse_choice);
 t_parser_global *ft_parse_light(char *line);
 t_parser_global *ft_parse_plane(char *line);
-int ft_check_sphere(char *line);
 t_parser_global *ft_parse_sphere(char *line);
-t_parser_global *ft_parse_cylinder(char *line);
-int ft_check_triangle(char *line);
-t_parser_global *ft_parse_triangle(char *line);
-t_list_minirt *ft_parsing(char *filepath);
+t_parser_global *ft_parse_line(char *line, int parse_choice);
 #endif
