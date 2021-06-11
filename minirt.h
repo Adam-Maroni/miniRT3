@@ -157,6 +157,7 @@ typedef struct s_list_minirt{
 } t_list_minirt;
 
 
+typedef char (*t_lineaddress)[LINES];
 
 t_list_minirt	*ft_lstlast_minirt(t_list_minirt *lst);
 void			ft_lstadd_back_minirt(t_list_minirt **head, t_list_minirt *new);
@@ -182,4 +183,21 @@ void ft_init_parser_sphere(t_parser_sphere *parser_sphere);
 void ft_init_parser_square(t_parser_square *parser_square);
 void ft_init_parser_triangle(t_parser_triangle *parser_triangle);;
 void ft_error_met(char *message);
+void ft_error_met(char *message);
+void ft_init_lineaddress(char *(*lineaddress)[LINES]);
+void ft_free_lineaddress(char *(*lineaddress)[LINES]);
+int ft_check_resolution(char *line);
+int ft_check_ambient(char *line);
+int ft_check_camera(char *line);
+void ft_terminate_with_error(char *message, char *(*lineaddress)[66], t_list_minirt **head, void (*ft_del_node_lstminirt));
+int ft_check_light(char *line);
+int ft_check_plane(char *line);
+int ft_check_sphere(char *line);
+t_parser_global *ft_parse_resolution(char *line);
+t_parser_global *ft_parse_ambient(char *line);
+t_parser_global *ft_parse_camera(char *line);
+t_parser_global *ft_parse_light(char *line);
+t_parser_global *ft_parse_plane(char *line);
+t_parser_global *ft_parse_sphere(char *line);
+t_parser_global *ft_parse_line(char *line, int parse_choice);
 #endif

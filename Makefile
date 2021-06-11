@@ -11,8 +11,7 @@ RT_FILE = ./rtfiles/1.rt
 SRC_GNL = ./gnl/get_next_line.c\
 	  ./gnl/get_next_line_utils.c
 
-SRC_UTILS = utils/linkedlist.c\
-utils/ft_init*.c\
+SRC_UTILS = utils/*.c
 
 SRC_ALL = $(SRC_GNL) $(SRC_UTILS)
 
