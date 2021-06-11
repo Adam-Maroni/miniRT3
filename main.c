@@ -86,12 +86,12 @@ int ft_check_ambient(char *line)
 		|| (content.parser_ambient.a_rgb_g < 0 || content.parser_ambient.a_rgb_g > 255)
 		|| (content.parser_ambient.a_rgb_b < 0 || content.parser_ambient.a_rgb_b > 255))
 			return (0);
-		return (1)
+		return (1);
 	}
 	return (0);
 }
 
-t_parser_global *ft_parse_ambient(char *line)
+t_parser_global ft_parse_ambient(char *line)
 {
 
 	t_parser_global content;
@@ -128,18 +128,18 @@ int ft_check_camera(char *line)
 		line++;
 		content.parser_camera.c_n_vector_z = ft_atof_retpos(&line);
 		line++;
-		content.parser_camera.fov = ft_atoi_retpos(&line);
+		content.parser_camera.c_fov = ft_atoi_retpos(&line);
 		if ((content.parser_camera.c_n_vector_x < -1 || content.parser_camera.c_n_vector_x > 1)
-		|| (content.parser_camera.c_nvector_y < -1 || content.parser_camera.c_n_vector_y > 1)
+		|| (content.parser_camera.c_n_vector_y < -1 || content.parser_camera.c_n_vector_y > 1)
 		|| (content.parser_camera.c_n_vector_z < -1 || content.parser_camera.c_n_vector_z > 1)
-		|| (content.parser_camera.fov < 0 || content.parser_camera.fov > 180));
+		|| (content.parser_camera.c_fov < 0 || content.parser_camera.c_fov > 180))
 			return (0);
-		return (1)
+		return (1);
 	}
 	return (0);
 }
 
-t_parser_global *ft_parse_camera(char *line)
+t_parser_global ft_parse_camera(char *line)
 {
 
 	t_parser_global content;
@@ -158,78 +158,15 @@ t_parser_global *ft_parse_camera(char *line)
 	line++;
 	content.parser_camera.c_n_vector_z = ft_atof_retpos(&line);
 	line++;
-	content.parser_camera.fov = ft_atoi_retpos(&line);
+	content.parser_camera.c_fov = ft_atoi_retpos(&line);
 	return (content);
 }
-
-
-int ft_is_line_correct(char *line)
-{
-	if (ft_check_resolution(line))
-		return (1);
-	if (ft_check_ambient(line))
-		return (2);
-	if (ft_check_camera(line))
-		return (3);
-	if (ft_check_cylinder(line))
-		return (4);
-	if (ft_check_light(line))
-		return (5);
-	if (ft_check_plane(line))
-		return (6);
-	if (ft_check_sphere(line))
-		return (7);
-	return (0);
-}
-
-t_parser_global *ft_parse_line(char *line, int parse_choice)
-{
-	t_parser_global *content;
-
-	content = NULL;
-	if (parse_choice == 1)
-		content = ft_parse_resolution(*line);
-	if (parse_choice == 2)
-		content = ft_parse_ambient(*line);
-	if (parse_choice == 3)
-		content = ft_parse_camera(*line);
-	if (parse_choice == 4)
-		content = ft_parse_cylinder(*line);
-	if (parse_choice == 5)
-		content = ft_parse_light(*line);
-	if (parse_choice == 6)
-		content = ft_parse_plane(*line);
-	if (parse_choice == 7)
-		content = ft_parse_sphere(*line);
-	return (content);
-}
-
-/*
-void	ft_check_line(char *line, t_parser_global *content)
-{
-	if (ft_check_resolution(line))
-		*content = ft_parsing_resolution(line);
-	else if (ft_check_resolution(line) < 0)
-		ft_error_met("Resolution invalide."); //+LIBERER LA MEMOIRE
-	//else if (line[0] == 'A' && ft_isspace((int)(line[1])))
-	//else if (line[0] == 'c' && ft_isspace((int)(line[1])))
-	//else if (line[0] == 'l' && ft_isspace((int)(line[1])))
-	//else if (line[0] == 'p' && line[1] == 'l' && ft_isspace((int)(line[2])))
-	//else if (line[0] == 's' && line[1] == 'p' && ft_isspace((int)(line[2])))
-	//else if (line[0] == 's' && line[1] == 'q' && ft_isspace((int)(line[2])))
-	//else if (line[0] == 'c' && line[1] == 'y' && ft_isspace((int)(line[2])))
-	//else if (line[0] == 't' && line[1] == 'r' && ft_isspace((int)(line[2])))
-	else
-		content = NULL;
-}
-*/
-
-void ft_terminate_with_error(char *message, t_lineaddress *lineaddress, t_list_minirt **head, void (*ft_del_node_lstminirt)(void*))
+void ft_terminate_with_error(char *message, char *(*lineaddress)[66], t_list_minirt **head, void (*ft_del_node_lstminirt))
 {
 	if (lineaddress)
-		ft_free_lineaddress(lineaddress);
+		ft_free_lineaddress( lineaddress);
 	if (head)
-		ft_lstclear_minirt(head, &ft_del_node_lstminirt);
+		ft_lstclear_minirt(head, ft_del_node_lstminirt);
 	ft_error_met(message);
 }
 
@@ -249,7 +186,7 @@ int ft_check_light(char *line)
 		line++;
 		content.parser_light.l_p_z = ft_atof_retpos(&line);
 		line++;
-		content.parser_light.l_p_r = ft_atof_retpos(&line);
+		content.parser_light.l_r = ft_atof_retpos(&line);
 		line++;
 		content.parser_light.l_rgb_r = ft_atoi_retpos(&line);
 		line++;
@@ -261,13 +198,13 @@ int ft_check_light(char *line)
 		|| (content.parser_light.l_rgb_g < 0 || content.parser_light.l_rgb_g > 255)
 		|| (content.parser_light.l_rgb_b < 0 || content.parser_light.l_rgb_b > 255))
 			return (0);
-		return (1)
+		return (1);
 	}
 	return (0);
 }
 
 
-t_parser_global *ft_parse_light(char *line)
+t_parser_global ft_parse_light(char *line)
 {
 
 	t_parser_global content;
@@ -280,7 +217,7 @@ t_parser_global *ft_parse_light(char *line)
 	line++;
 	content.parser_light.l_p_z = ft_atof_retpos(&line);
 	line++;
-	content.parser_light.l_p_r = ft_atof_retpos(&line);
+	content.parser_light.l_r = ft_atof_retpos(&line);
 	line++;
 	content.parser_light.l_rgb_r = ft_atoi_retpos(&line);
 	line++;
@@ -309,27 +246,26 @@ int ft_check_plane(char *line)
 		line++;
 		content.parser_plane.pl_rgb_b = ft_atoi_retpos(&line);
 		line++;
-		content.parser_plane.pl_nvector_x = ft_atof_retpos(&line);
+		content.parser_plane.pl_n_vector_x = ft_atof_retpos(&line);
 		line++;
-		content.parser_plane.pl_nvector_y = ft_atof_retpos(&line);
+		content.parser_plane.pl_n_vector_y = ft_atof_retpos(&line);
 		line++;
-		content.parser_plane.pl_nvector_z = ft_atof_retpos(&line);
+		content.parser_plane.pl_n_vector_z = ft_atof_retpos(&line);
 
-		if ((content.parser_plane.l_r < 0 || content.parser_plane.l_r > 1)
-		|| (content.parser_plane.pl_rgb_r < 0 || content.parser_plane.pl_rgb_r > 255)
+		if ((content.parser_plane.pl_rgb_r < 0 || content.parser_plane.pl_rgb_r > 255)
 		|| (content.parser_plane.pl_rgb_g < 0 || content.parser_plane.pl_rgb_g > 255)
-		|| (content.parser_plane.pl_rgb_b < 0 || content.parser_plane.pl_rgb_b > 255))
+		|| (content.parser_plane.pl_rgb_b < 0 || content.parser_plane.pl_rgb_b > 255)
 		|| (content.parser_plane.pl_n_vector_x < -1 || content.parser_plane.pl_n_vector_x > 1)
 		|| (content.parser_plane.pl_n_vector_y < -1 || content.parser_plane.pl_n_vector_y > 1)
-		|| (content.parser_plane.pl_n_vector_z < -1 || content.parser_plane.pl_n_vector_z > 1)
+		|| (content.parser_plane.pl_n_vector_z < -1 || content.parser_plane.pl_n_vector_z > 1))
 			return (0);
-		return (1)
+		return (1);
 	}
 	return (0);
 }
 
 
-t_parser_global *ft_parse_plane(char *line)
+t_parser_global ft_parse_plane(char *line)
 {
 
 	t_parser_global content;
@@ -348,53 +284,13 @@ t_parser_global *ft_parse_plane(char *line)
 	line++;
 	content.parser_plane.pl_rgb_b = ft_atoi_retpos(&line);
 	line++;
-	content.parser_plane.pl_nvector_x = ft_atof_retpos(&line);
+	content.parser_plane.pl_n_vector_x = ft_atof_retpos(&line);
 	line++;
-	content.parser_plane.pl_nvector_y = ft_atof_retpos(&line);
+	content.parser_plane.pl_n_vector_y = ft_atof_retpos(&line);
 	line++;
-	content.parser_plane.pl_nvector_z = ft_atof_retpos(&line);
+	content.parser_plane.pl_n_vector_z = ft_atof_retpos(&line);
 	return (content);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -423,13 +319,13 @@ int ft_check_sphere(char *line)
 		|| (content.parser_sphere.sp_rgb_g < 0 || content.parser_sphere.sp_rgb_g > 255)
 		|| (content.parser_sphere.sp_rgb_b < 0 || content.parser_sphere.sp_rgb_b > 255))
 			return (0);
-		return (1)
+		return (1);
 	}
 	return (0);
 }
 
 
-t_parser_global *ft_parse_sphere(char *line)
+t_parser_global ft_parse_sphere(char *line)
 {
 
 	t_parser_global content;
@@ -456,15 +352,7 @@ t_parser_global *ft_parse_sphere(char *line)
 
 
 
-
-int ft_check_square(char *line)
-{
-
-	t_parser_global content;
-	if (line[0] == 'p' && line[1] == 'l' && ft_isspace((int)(line[2])))
-	{
-		line++;
-
+/*
 int ft_check_cylinder(char *line)
 {
 
@@ -478,11 +366,11 @@ int ft_check_cylinder(char *line)
 		line++;
 		content.parser_cylinder.cy_z = ft_atof_retpos(&line);
 		line++;
-		content.parser_cylinder.cy_nvector_x = ft_atof_retpos(&line);
+		content.parser_cylinder.cy_n_vector_x = ft_atof_retpos(&line);
 		line++;
-		content.parser_cylinder.cy_nvector_y = ft_atof_retpos(&line);
+		content.parser_cylinder.cy_n_vector_y = ft_atof_retpos(&line);
 		line++;
-		content.parser_cylinder.cy_nvector_z = ft_atof_retpos(&line);
+		content.parser_cylinder.cy_n_vector_z = ft_atof_retpos(&line);
 		line++;
 		content.parser_cylinder.cy_d = ft_atof_retpos(&line);
 		line++;
@@ -501,13 +389,13 @@ int ft_check_cylinder(char *line)
 		|| (content.parser_cylinder.cy_n_vector_y < -1 || content.parser_cylinder.cy_n_vector_y > 1)
 		|| (content.parser_cylinder.cy_n_vector_z < -1 || content.parser_cylinder.cy_n_vector_z > 1))
 			return (0);
-		return (1)
+		return (1);
 	}
 	return (0);
 }
 
 
-t_parser_global *ft_parse_cylinder(char *line)
+t_parser_global ft_parse_cylinder(char *line)
 {
 
 	t_parser_global content;
@@ -520,11 +408,11 @@ t_parser_global *ft_parse_cylinder(char *line)
 	line++;
 	content.parser_cylinder.cy_z = ft_atof_retpos(&line);
 	line++;
-	content.parser_cylinder.cy_nvector_x = ft_atof_retpos(&line);
+	content.parser_cylinder.cy_n_vector_x = ft_atof_retpos(&line);
 	line++;
-	content.parser_cylinder.cy_nvector_y = ft_atof_retpos(&line);
+	content.parser_cylinder.cy_n_vector_y = ft_atof_retpos(&line);
 	line++;
-	content.parser_cylinder.cy_nvector_z = ft_atof_retpos(&line);
+	content.parser_cylinder.cy_n_vector_z = ft_atof_retpos(&line);
 	line++;
 	content.parser_cylinder.cy_d = ft_atof_retpos(&line);
 	line++;
@@ -537,7 +425,8 @@ t_parser_global *ft_parse_cylinder(char *line)
 	content.parser_cylinder.cy_rgb_b = ft_atof_retpos(&line);
 	return (content);
 }
-
+*/
+/*
 int ft_check_triangle(char *line)
 {
 
@@ -545,64 +434,127 @@ int ft_check_triangle(char *line)
 	if (line[0] == 'p' && line[1] == 'l' && ft_isspace((int)(line[2])))
 	{
 		line++;
-		content.parser_triangle.pl_x = ft_atof_retpos(&line);
+		content.parser_triangle.tr_x = ft_atof_retpos(&line);
 		line++;
-		content.parser_triangle.pl_y = ft_atof_retpos(&line);
+		content.parser_triangle.tr_y = ft_atof_retpos(&line);
 		line++;
-		content.parser_triangle.pl_z = ft_atof_retpos(&line);
+		content.parser_triangle.tr_z = ft_atof_retpos(&line);
 		line++;
-		content.parser_triangle.pl_rgb_r = ft_atoi_retpos(&line);
+		content.parser_triangle.tr_rgb_r = ft_atoi_retpos(&line);
 		line++;
-		content.parser_triangle.pl_rgb_g = ft_atoi_retpos(&line);
+		content.parser_triangle.tr_rgb_g = ft_atoi_retpos(&line);
 		line++;
-		content.parser_triangle.pl_rgb_b = ft_atoi_retpos(&line);
+		content.parser_triangle.tr_rgb_b = ft_atoi_retpos(&line);
 		line++;
-		content.parser_triangle.pl_nvector_x = ft_atof_retpos(&line);
+		content.parser_triangle.tr_n_vector_x = ft_atof_retpos(&line);
 		line++;
-		content.parser_triangle.pl_nvector_y = ft_atof_retpos(&line);
+		content.parser_triangle.tr_n_vector_y = ft_atof_retpos(&line);
 		line++;
-		content.parser_triangle.pl_nvector_z = ft_atof_retpos(&line);
+		content.parser_triangle.tr_n_vector_z = ft_atof_retpos(&line);
 
-		if ((content.parser_triangle.l_r < 0 || content.parser_triangle.l_r > 1)
-				|| (content.parser_triangle.pl_rgb_r < 0 || content.parser_triangle.pl_rgb_r > 255)
-				|| (content.parser_triangle.pl_rgb_g < 0 || content.parser_triangle.pl_rgb_g > 255)
-				|| (content.parser_triangle.pl_rgb_b < 0 || content.parser_triangle.pl_rgb_b > 255))
-			|| (content.parser_triangle.pl_n_vector_x < -1 || content.parser_triangle.pl_n_vector_x > 1)
-				|| (content.parser_triangle.pl_n_vector_y < -1 || content.parser_triangle.pl_n_vector_y > 1)
-				|| (content.parser_triangle.pl_n_vector_z < -1 || content.parser_triangle.pl_n_vector_z > 1)
+				if ((content.parser_triangle.tr_rgb_r < 0 || content.parser_triangle.tr_rgb_r > 255)
+				|| (content.parser_triangle.tr_rgb_g < 0 || content.parser_triangle.tr_rgb_g > 255)
+				|| (content.parser_triangle.tr_rgb_b < 0 || content.parser_triangle.tr_rgb_b > 255))
+				|| (content.parser_triangle.tr_n_vector_x < -1 || content.parser_triangle.tr_n_vector_x > 1)
+				|| (content.parser_triangle.tr_n_vector_y < -1 || content.parser_triangle.tr_n_vector_y > 1)
+				|| (content.parser_triangle.tr_n_vector_z < -1 || content.parser_triangle.tr_n_vector_z > 1)
 				return (0);
-		return (1)
+		return (1);
 	}
 	return (0);
 }
+*/
 
-
-t_parser_global *ft_parse_triangle(char *line)
+/*
+t_parser_global ft_parse_triangle(char *line)
 {
 
 	t_parser_global content;
 
-	content.parser_triangle.pl = 1;
+	content.parser_triangle.tr = 1;
 	line++;
-	content.parser_triangle.pl_x = ft_atof_retpos(&line);
+	content.parser_triangle.tr_x = ft_atof_retpos(&line);
 	line++;
-	content.parser_triangle.pl_y = ft_atof_retpos(&line);
+	content.parser_triangle.tr_y = ft_atof_retpos(&line);
 	line++;
-	content.parser_triangle.pl_z = ft_atof_retpos(&line);
+	content.parser_triangle.tr_z = ft_atof_retpos(&line);
 	line++;
-	content.parser_triangle.pl_rgb_r = ft_atoi_retpos(&line);
+	content.parser_triangle.tr_rgb_r = ft_atoi_retpos(&line);
 	line++;
-	content.parser_triangle.pl_rgb_g = ft_atoi_retpos(&line);
+	content.parser_triangle.tr_rgb_g = ft_atoi_retpos(&line);
 	line++;
-	content.parser_triangle.pl_rgb_b = ft_atoi_retpos(&line);
+	content.parser_triangle.tr_rgb_b = ft_atoi_retpos(&line);
 	line++;
-	content.parser_triangle.pl_nvector_x = ft_atof_retpos(&line);
+	content.parser_triangle.tr_n_vector_x = ft_atof_retpos(&line);
 	line++;
-	content.parser_triangle.pl_nvector_y = ft_atof_retpos(&line);
+	content.parser_triangle.tr_n_vector_y = ft_atof_retpos(&line);
 	line++;
-	content.parser_triangle.pl_nvector_z = ft_atof_retpos(&line);
+	content.parser_triangle.tr_n_vector_z = ft_atof_retpos(&line);
 	return (content);
 }
+*/
+
+int ft_is_line_correct(char *line)
+{
+	if (ft_check_resolution(line))
+		return (1);
+	if (ft_check_ambient(line))
+		return (2);
+	if (ft_check_camera(line))
+		return (3);
+	//if (ft_check_cylinder(line))
+		//return (4);
+	if (ft_check_light(line))
+		return (5);
+	if (ft_check_plane(line))
+		return (6);
+	if (ft_check_sphere(line))
+		return (7);
+	return (0);
+}
+
+t_parser_global *ft_parse_line(char *line, int parse_choice)
+{
+	t_parser_global *content;
+
+	content = NULL;
+	if (parse_choice == 1)
+		*content = ft_parse_resolution(line);
+	if (parse_choice == 2)
+		*content = ft_parse_ambient(line);
+	if (parse_choice == 3)
+		*content = ft_parse_camera(line);
+	//if (parse_choice == 4)
+		//*content = ft_parse_cylinder(line);
+	if (parse_choice == 5)
+		*content = ft_parse_light(line);
+	if (parse_choice == 6)
+		*content = ft_parse_plane(line);
+	if (parse_choice == 7)
+		*content = ft_parse_sphere(line);
+	return (content);
+}
+
+/*
+void	ft_check_line(char *line, t_parser_global *content)
+{
+	if (ft_check_resolution(line))
+		*content = ft_parsing_resolution(line);
+	else if (ft_check_resolution(line) < 0)
+		ft_error_met("Resolution invalide."); //+LIBERER LA MEMOIRE
+	//else if (line[0] == 'A' && ft_isspace((int)(line[1])))
+	//else if (line[0] == 'c' && ft_isspace((int)(line[1])))
+	//else if (line[0] == 'l' && ft_isspace((int)(line[1])))
+	//else if (line[0] == 'p' && line[1] == 'l' && ft_isspace((int)(line[2])))
+	//else if (line[0] == 's' && line[1] == 'p' && ft_isspace((int)(line[2])))
+	//else if (line[0] == 's' && line[1] == 'q' && ft_isspace((int)(line[2])))
+	//else if (line[0] == 'c' && line[1] == 'y' && ft_isspace((int)(line[2])))
+	//else if (line[0] == 't' && line[1] == 'r' && ft_isspace((int)(line[2])))
+	else
+		content = NULL;
+}
+*/
+
 
 
 
@@ -632,7 +584,7 @@ t_list_minirt *ft_parsing(char *filepath)
 		if (ft_is_line_correct(lineaddress[j]))
 			parser = ft_parse_line(lineaddress[j], ft_is_line_correct(lineaddress[j]));
 		else
-			ft_terminate_with_error("Fichier invalide.",&lineaddress,head,&ft_del_node_lstminirt);
+			ft_terminate_with_error("Fichier invalide.",&lineaddress,&head,&ft_del_node_lstminirt);
 		ft_lstadd_back_minirt(&head,ft_lstnew_minirt(parser));
 		j++;
 	}

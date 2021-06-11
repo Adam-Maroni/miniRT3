@@ -30,9 +30,9 @@ typedef struct s_parser_camera{
 	float c_pov_x;
 	float c_pov_y;
 	float c_pov_z;
-	float c_nvector_x;
-	float c_nvector_y;
-	float c_nvector_z;
+	float c_n_vector_x;
+	float c_n_vector_y;
+	float c_n_vector_z;
 	int c_fov;
 } t_parser_camera;
 
@@ -66,9 +66,9 @@ typedef struct s_parser_plane{
 	int pl_rgb_r;
 	int pl_rgb_g;
 	int pl_rgb_b;
-	float pl_nvector_x;
-	float pl_nvector_y;
-	float pl_nvector_z;
+	float pl_n_vector_x;
+	float pl_n_vector_y;
+	float pl_n_vector_z;
 } t_parser_plane;
 
 typedef struct s_parser_square{
@@ -76,9 +76,9 @@ typedef struct s_parser_square{
 	float sq_x;
 	float sq_y;
 	float sq_z;
-	float sq_nvector_x;
-	float sq_nvector_y;
-	float sq_nvector_z;
+	float sq_n_vector_x;
+	float sq_n_vector_y;
+	float sq_n_vector_z;
 	float sq_sd;
 	int sq_rgb_r;
 	int sq_rgb_g;
