@@ -157,6 +157,7 @@ int main(int argc, char **argv)
 		ft_terminate_with_error("Trop d'argument passe en parametre", NULL, NULL, NULL);
 	head = ft_parsing(argv[1]);
 	ft_lstclear_minirt(&head, &ft_del_node_lstminirt);
+	printf("FICHIER VALIDE\n");
 	return (0);
 }
 

@@ -5,9 +5,9 @@ int ft_check_cylinder(char *line)
 {
 
 	t_parser_global content;
-	if (line[0] == 'C' && ft_isspace((int)(line[1])))
+	if (line[0] == 'c' && line[1] == 'y' && ft_isspace((int)(line[2])))
 	{
-		line++;
+		line+=2;
 		content.parser_cylinder.cy_x = ft_atof_retpos(&line);
 		line++;
 		content.parser_cylinder.cy_y = ft_atof_retpos(&line);

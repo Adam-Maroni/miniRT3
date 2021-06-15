@@ -7,7 +7,7 @@ int ft_check_sphere(char *line)
 	t_parser_global content;
 	if (line[0] == 's' && line[1] == 'p' && ft_isspace((int)(line[2])))
 	{
-		line++;
+		line+=2;
 		content.parser_sphere.sp_x = ft_atof_retpos(&line);
 		line++;
 		content.parser_sphere.sp_y = ft_atof_retpos(&line);

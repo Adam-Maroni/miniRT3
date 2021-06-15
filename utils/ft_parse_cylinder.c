@@ -9,7 +9,7 @@ t_parser_global *ft_parse_cylinder(char *line)
 	content = &tmp;
 	ft_init_parser_global(content);
 	content->parser_cylinder.cy = 1;
-	line++;
+	line+=2;
 	content->parser_cylinder.cy_x = ft_atof_retpos(&line);
 	line++;
 	content->parser_cylinder.cy_y = ft_atof_retpos(&line);

@@ -10,7 +10,7 @@ t_parser_global *ft_parse_sphere(char *line)
 	rt = NULL;
 	ft_init_parser_global(&content);	
 	content.parser_sphere.sp = 1;
-	line++;
+	line+=2;
 	content.parser_sphere.sp_x = ft_atof_retpos(&line);
 	line++;
 	content.parser_sphere.sp_y = ft_atof_retpos(&line);
