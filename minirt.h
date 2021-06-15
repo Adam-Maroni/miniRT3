@@ -95,6 +95,9 @@ typedef struct s_parser_cylinder{
 	float cy_n_vector_z;
 	float cy_d;
 	float cy_h;
+	int	cy_rgb_r;
+	int	cy_rgb_g;
+	int	cy_rgb_b;
 } t_parser_cylinder;
 
 typedef struct s_parser_triangle{
@@ -193,11 +196,13 @@ void ft_terminate_with_error(char *message, char *(*lineaddress)[66], t_list_min
 int ft_check_light(char *line);
 int ft_check_plane(char *line);
 int ft_check_sphere(char *line);
+int ft_check_cylinder(char *line);
 t_parser_global *ft_parse_resolution(char *line);
 t_parser_global *ft_parse_ambient(char *line);
 t_parser_global *ft_parse_camera(char *line);
 t_parser_global *ft_parse_light(char *line);
 t_parser_global *ft_parse_plane(char *line);
 t_parser_global *ft_parse_sphere(char *line);
+t_parser_global *ft_parse_cylinder(char *line);
 t_parser_global *ft_parse_line(char *line, int parse_choice);
 #endif

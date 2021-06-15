@@ -37,9 +37,9 @@ DESCRPITIF DES OBJETS:
 	parser_camera.c_pov_x = viewpoint coordinate x
 	parser_camera.c_pov_y = viewpoint coordinate y
 	parser_camera.c_pov_z = viewpoint coordinate z
-	parser_camera.c_nvector_x = 3d normalized orientation vector x coordinate float [-1,1]
-	parser_camera.c_nvector_y = 3d normalized orientation vector y coordinate float [-1,1]
-	parser_camera.c_nvector_z = 3d normalized orientation vector z coordinate float [-1,1]
+	parser_camera.c_n_vector_x = 3d normalized orientation vector x coordinate float [-1,1]
+	parser_camera.c_n_vector_y = 3d normalized orientation vector y coordinate float [-1,1]
+	parser_camera.c_n_vector_z = 3d normalized orientation vector z coordinate float [-1,1]
 	parser_camera.fov = Camera FOV int [0,180]
 
 	parser_light.l = light
@@ -58,9 +58,9 @@ DESCRPITIF DES OBJETS:
 	parser_plane.pl_rgb_r float [0,255]
 	parser_plane.pl_rgb_g float [0,255]
 	parser_plane.pl_rgb_b float [0,255]
-	parser_plane.pl_nvector_x = plane 3d normalized orientation vector x coordinate float [-1,1]
-	parser_plane.pl_nvector_y = plane 3d normalized orientation vector y coordinate float [-1,1]
-	parser_plane.pl_nvector_z = plane 3d normalized orientation vector z coordinate float [-1,1]
+	parser_plane.pl_n_vector_x = plane 3d normalized orientation vector x coordinate float [-1,1]
+	parser_plane.pl_n_vector_y = plane 3d normalized orientation vector y coordinate float [-1,1]
+	parser_plane.pl_n_vector_z = plane 3d normalized orientation vector z coordinate float [-1,1]
 
 	parser_sphere.sp = sphere
 	parser_sphere.sp_x = shere center coodinate x
@@ -75,9 +75,9 @@ DESCRPITIF DES OBJETS:
 	parser_square.sq_x = square's center coordinate x
 	parser_square.sq_y = square's center coordinate y
 	parser_square.sq_z = square's center coordinate z
-	parser_square.sq_nvector_x = square 3d normalized orientation vector x coordinate
-	parser_square.sq_nvector_y = square 3d normalized orientation vector y coordinate
-	parser_square.sq_nvector_z = square 3d normalized orientation vector z coordinate
+	parser_square.sq_n_vector_x = square 3d normalized orientation vector x coordinate
+	parser_square.sq_n_vector_y = square 3d normalized orientation vector y coordinate
+	parser_square.sq_n_vector_z = square 3d normalized orientation vector z coordinate
 	parser_square.sq_sd = square side size
 	parser_square.sq_rgb_r = square color red
 	parser_square.sq_rgb_g = square color green
@@ -87,9 +87,9 @@ DESCRPITIF DES OBJETS:
 	parser_cylinder.cy_x = cylinder coordinate x
 	parser_cylinder.cy_y = cylinder coordinate y
 	parser_cylinder.cy_z = cylinder coordinate z
-	parser_cylinder.cy_nvector_x = cylinder 3d normalized orientation vector x coordinate
-	parser_cylinder.cy_nvector_y = cylinder 3d normalized orientation vector y coordinate
-	parser_cylinder.cy_nvector_z = cylinder 3d normalized orientation vector z coordinate
+	parser_cylinder.cy_n_vector_x = cylinder 3d normalized orientation vector x coordinate
+	parser_cylinder.cy_n_vector_y = cylinder 3d normalized orientation vector y coordinate
+	parser_cylinder.cy_n_vector_z = cylinder 3d normalized orientation vector z coordinate
 	parser_cylinder.cy_d = cylinder diamater
 	parser_cylinder.cy_h = cylinder height
 	parser_cylinder.cy_rgb_r = cylinder color red

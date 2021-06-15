@@ -11,5 +11,8 @@ void ft_init_parser_cylinder(t_parser_cylinder *parser_cylinder)
 	parser_cylinder->cy_n_vector_z = 0;
 	parser_cylinder->cy_d = 0;
 	parser_cylinder->cy_h = 0;
+	parser_cylinder->cy_rgb_r = 0;
+	parser_cylinder->cy_rgb_g = 0;
+	parser_cylinder->cy_rgb_b = 0;
 }
 
