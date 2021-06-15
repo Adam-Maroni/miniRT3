@@ -5,7 +5,7 @@ void ft_terminate_with_error(char *message, char *(*lineaddress)[66], t_list_min
 {
 	if (lineaddress)
 		ft_free_lineaddress(lineaddress);
-	if (head)
+	if (*head)
 		ft_lstclear_minirt(head, ft_del_node_lstminirt);
 	ft_error_met(message);
 }
