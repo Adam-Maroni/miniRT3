@@ -1,37 +1,5 @@
 #include "minirt.h"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 int ft_check_cylinder(char *line)
 {
