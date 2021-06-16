@@ -205,4 +205,10 @@ t_parser_global *ft_parse_plane(char *line);
 t_parser_global *ft_parse_sphere(char *line);
 t_parser_global *ft_parse_cylinder(char *line);
 t_parser_global *ft_parse_line(char *line, int parse_choice);
+int ft_check_for_duplicate_resolution(t_list_minirt *head);
+int ft_check_for_duplicate_ambient(t_list_minirt *head);
+int ft_check_for_duplicate_camera(t_list_minirt *head);
+int ft_check_for_duplicate_light(t_list_minirt *head);
+int ft_check_for_duplicate(t_list_minirt **head);
 #endif
+
