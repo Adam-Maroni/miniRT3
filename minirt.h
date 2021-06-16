@@ -210,5 +210,10 @@ int ft_check_for_duplicate_ambient(t_list_minirt *head);
 int ft_check_for_duplicate_camera(t_list_minirt *head);
 int ft_check_for_duplicate_light(t_list_minirt *head);
 int ft_check_for_duplicate(t_list_minirt **head);
+int ft_check_for_mandatory_resolution(t_list_minirt *head);
+int ft_check_for_mandatory_ambient(t_list_minirt *head);
+int ft_check_for_mandatory_camera(t_list_minirt *head);
+int ft_check_for_mandatory_light(t_list_minirt *head);
+int ft_check_for_mandatory(t_list_minirt **head);
 #endif
 
