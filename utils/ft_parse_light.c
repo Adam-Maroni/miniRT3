@@ -5,9 +5,9 @@ t_parser_global *ft_parse_light(char *line)
 {
 
 	t_parser_global *content;
-	t_parser_global tmp;
 	
-	content = &tmp;
+	
+	content = (t_parser_global*)ft_calloc(sizeof(t_parser_global),1);
 	ft_init_parser_global(content);
 	content->parser_light.l = 1;
 	line++;

@@ -69,10 +69,10 @@ int ft_check_for_duplicate(t_list_minirt **head)
 {
 	if (*head)
 	{
-		if ((ft_check_for_duplicate_resolution(*head) > 0)
-		|| (ft_check_for_duplicate_ambient(*head) > 0)
-		|| (ft_check_for_duplicate_camera(*head) > 0)
-		|| (ft_check_for_duplicate_light(*head) > 0))
+		if ((ft_check_for_duplicate_resolution(*head) > 1)
+		|| (ft_check_for_duplicate_ambient(*head) > 1)
+		|| (ft_check_for_duplicate_camera(*head) > 1)
+		|| (ft_check_for_duplicate_light(*head) > 1))
 			return (1);
 	}
 		return (0);

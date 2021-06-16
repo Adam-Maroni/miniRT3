@@ -4,11 +4,10 @@
 t_parser_global *ft_parse_resolution(char *line)
 {
 	t_parser_global *content;
-	t_parser_global tmp;
 	int width;
 	int height;
 	
-	content = &tmp;
+	content = (t_parser_global*)ft_calloc(sizeof(t_parser_global),1);
 	ft_init_parser_global(content);
 	line++;
 	width = ft_atoi_retpos(&line);

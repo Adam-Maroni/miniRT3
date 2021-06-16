@@ -2,10 +2,8 @@
 
 void ft_del_node_lstminirt(void *content)
 {
-	content = NULL;
-	if (!content)
-		return ;
-	//ft_init_parser_global((t_parser_global*)content);
+	if (content)
+		free(content);
 }
 
 t_list_minirt	*ft_lstlast_minirt(t_list_minirt *lst)
