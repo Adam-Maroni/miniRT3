@@ -17,16 +17,23 @@ t_list_minirt	*ft_lstlast_minirt(t_list_minirt *lst)
 	return (lst);
 }
 
-void			ft_lstadd_back_minirt(t_list_minirt **head, t_list_minirt *new)
+void			ft_lstadd_back_minirt(t_list_minirt **alst, t_list_minirt *new)
 {
-	t_list_minirt *lst;
+	t_list_minirt	*last;
 
-	if ((lst = ft_lstlast_minirt(*head)) == NULL)
-		*head = new;
-	else
-		lst->next = new;
-	new->next = NULL;
+	if (alst)
+	{
+		if (*alst)
+		{
+			last = ft_lstlast_minirt(*alst);
+			last->next = new;
+		}
+		else
+			*alst = new;
+	}
 }
+
+
 
 void	ft_lstadd_front_minirt(t_list_minirt **alst, t_list_minirt *new)
 {

@@ -3,13 +3,15 @@
 int ft_check_for_duplicate_resolution(t_list_minirt *head)
 {
 	int cp;	
+	t_list_minirt	*tmp;
 
+	tmp = head;
 	cp = 0;
-	while (head)
+	while (tmp)
 	{
-		if (head->content->parser_resolution.r > 0)
-			cp += head->content->parser_resolution.r;
-		head = head->next;
+		if (tmp->content->parser_resolution.r > 0)
+			cp += tmp->content->parser_resolution.r;
+		tmp = tmp->next;
 	}
 	return (cp);
 }
@@ -17,13 +19,15 @@ int ft_check_for_duplicate_resolution(t_list_minirt *head)
 int ft_check_for_duplicate_ambient(t_list_minirt *head)
 {
 	int cp;	
+	t_list_minirt	*tmp;
 
+	tmp = head;
 	cp = 0;
-	while (head)
+	while (tmp)
 	{
-		if (head->content->parser_ambient.a > 0)
-			cp += head->content->parser_ambient.a;
-		head = head->next;
+		if (tmp->content->parser_ambient.a > 0)
+			cp += tmp->content->parser_ambient.a;
+		tmp = tmp->next;
 	}
 	return (cp);
 }
@@ -31,13 +35,15 @@ int ft_check_for_duplicate_ambient(t_list_minirt *head)
 int ft_check_for_duplicate_camera(t_list_minirt *head)
 {
 	int cp;	
+	t_list_minirt	*tmp;
 
+	tmp = head;
 	cp = 0;
-	while (head)
+	while (tmp)
 	{
-		if (head->content->parser_camera.c > 0)
-			cp += head->content->parser_camera.c;
-		head = head->next;
+		if (tmp->content->parser_camera.c > 0)
+			cp += tmp->content->parser_camera.c;
+		tmp = tmp->next;
 	}
 	return (cp);
 }
@@ -45,13 +51,15 @@ int ft_check_for_duplicate_camera(t_list_minirt *head)
 int ft_check_for_duplicate_light(t_list_minirt *head)
 {
 	int cp;	
+	t_list_minirt	*tmp;
 
+	tmp = head;
 	cp = 0;
-	while (head)
+	while (tmp)
 	{
-		if (head->content->parser_light.l > 0)
-			cp += head->content->parser_light.l;
-		head = head->next;
+		if (tmp->content->parser_light.l > 0)
+			cp += tmp->content->parser_light.l;
+		tmp = tmp->next;
 	}
 	return (cp);
 }

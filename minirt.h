@@ -163,7 +163,7 @@ typedef struct s_list_minirt{
 typedef char (*t_lineaddress)[LINES];
 
 t_list_minirt	*ft_lstlast_minirt(t_list_minirt *lst);
-void			ft_lstadd_back_minirt(t_list_minirt **head, t_list_minirt *new);
+void			ft_lstadd_back_minirt(t_list_minirt **alst, t_list_minirt *new);
 void	ft_lstadd_front_minirt(t_list_minirt **alst, t_list_minirt *new);
 void	ft_lstclear_minirt(t_list_minirt **lst, void (*del)(void*));
 void	ft_lstdelone_minirt(t_list_minirt *lst, void (*del)(void*));
