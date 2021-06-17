@@ -1,0 +1,51 @@
+METHOD RAYTRACING
+	t_parser_camera *camera = ft_look_for_camera(t_list_minirt *head);
+	t_parser_camera *resolution = ft_look_for_resolution(t_list_minirt *head);
+	
+	
+	IF (!camera || !resolution)
+		PROBLEM
+	END IF
+	FOR x = -resolution.w/2 to resolution.w/2
+		FOR y = -resolution.h/2 to resolution.h/2
+			t_vector point = ft_canvas_to_viewport(x,y);
+			t_color color = ft_traceray(cameraPos, point,1,INFINITY);
+			ft_putpixl(x,y,color);
+		END FOR
+	END FOR
+END METHOD
+
+
+
+
+
+
+METHOD ft_look_for_camera(t_list_minirt *lst)
+	WHILE (lst)
+		IF (lst->content->parser_camera.c == 1)
+			BREAK ;
+		END IF	
+		lst = lst->next;
+	END WHILE	
+	RETURN (lst)
+END METHOD
+
+METHOD ft_look_for_resolution(t_list_minirt *lst)
+	WHILE (lst)
+		IF (lst->content->parser_resolution.r == 1)
+			BREAK ;
+		END IF	
+		lst = lst->next;
+	END WHILE	
+	RETURN (lst)
+END METHOD
+
+
+METHOD ft_canvas_to_viewport(t_parser_camera *camera, t_parser_resolution *resolution)
+	t_vector viewport = ft_calculate_viewport_dimensions(camera);
+	t_vector point;		
+	
+	point.x = x * viewport.x / resolution.w;
+	point.y = y * viewport.y / resolution.h;
+	point.z = vi
+END METHOD
