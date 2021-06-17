@@ -1,16 +1,19 @@
 METHOD RAYTRACING
+	void *mlx = NULL;
+	void *mlx_win = NULL;
+	t_data img;
 	t_parser_camera *camera = ft_look_for_camera(t_list_minirt *head);
 	t_parser_camera *resolution = ft_look_for_resolution(t_list_minirt *head);
-	
-	
+		
 	IF (!camera || !resolution)
 		PROBLEM
 	END IF
+	ft_init_mlx(resolution, &mlx, &mlx_win, &img);
 	FOR x = -resolution.w/2 to resolution.w/2
 		FOR y = -resolution.h/2 to resolution.h/2
 			t_int3 point = ft_canvas_to_viewport(x,y);
 			t_color color = ft_traceray(cameraPos, point,1,INFINITY);
-			ft_putpixl(x,y,color);
+			ft_mlx_pixel_put(data, x, y, color);
 		END FOR
 	END FOR
 END METHOD
@@ -67,20 +70,24 @@ END METHOD
 
 
 
-METHOD ft_traceray(t_parser_camera *camera, t_int3 *point, int tmin, int tmx)
+METHOD ft_traceray(t_parser_camera *camera, t_int3 *point, int tmin, int tmax, t_list_minirt *head)
 	t_parser_sphere *closest_sphere = NULL;
 	int closest_t = INFINITY
-	FOR sphere in scene
-		t1, t2 = ft_intersect_ray_with_sphere(camera, point, sphere)
-		IF (t1 >= tmin && t1 <= tmax && t1 < closest_t)
-			closest_t = t1;
-			closest_sphere = sphere;
+	t_int2 *solutions;
+	t_list_minirt *current_sphere = NULL;
+
+	WHILE ((current_sphere = ft_find_next_sphere(current_sphere, head)))
+		solutions = ft_intersect_ray_with_sphere(camera, point, current_sphere)
+		IF (solutions->t1 >= tmin && solutions->t1 <= tmax && solutions->t1 < closest_t)
+			closest_t = solutions->t1;
+			closest_sphere = current_sphere;
 		END IF
-		IF (t2 >= tmin && t2 <= tmax && t2 < closest_t)
-			closest_t = t2;
-			closest_sphere = sphere;
+		IF (solutions->t2 >= tmin && solutions->t2 <= tmax && solutions->t2 < closest_t)
+			closest_t = solutions->t2;
+			closest_sphere = current_sphere;
 		END IF
-	END FOR
+	END WHILE
+	FREE(solutions);
 	IF (closest_sphere == NULL)
 		RETURN(background_color)
 	END IF
@@ -90,6 +97,7 @@ END METHOD
 
 METHOD ft_intersect_ray_with_sphere(t_parser_camera *camera, t_int3 *point, t_parser_sphere *sphere)
 	t_int3 camera_to_sphere;
+	t_int2 *solutions = (t_int2*)ft_calloc(sizeof(t_int2),1);
 	camera_to_sphere.x = sphere.sp_x - camera.pov_x;
 	camera_to_sphere.y = sphere.sp_y - camera.pov_y;
 	camera_to_sphere.z = sphere.sp_z - camera.pov_z;
@@ -98,14 +106,47 @@ METHOD ft_intersect_ray_with_sphere(t_parser_camera *camera, t_int3 *point, t_pa
 	int c = ft_dot_product(camera_to_sphere, camera_to_sphere) - camera.r * camera.r;
 	int delta = (b * b) - (4 * a * c);
 	IF (delta < 0)
-		return (INFINITY, INFINITY)
+		solutions->t1 = INFINITY;
+		solutions->t2 = INFINITY;
 	END IF
 	IF (delta == 0)
-		return (-b / (2 * a));
+		solutions->t1 = -b / (2 * a);
+		solutions->t2 = -b / (2 * a);
 	END IF
 	IF (delta > 0)
-		t1 = (-b + sqrt(delta)) / (2 * a);
-		t2 = (-b - sqrt(delta)) / (2 * a);
-		return (t1,t2);
+		solutions->t1 = (-b + sqrt(delta)) / (2 * a);
+		solutions->t2 = (-b - sqrt(delta)) / (2 * a);
 	END IF
+	return (solutions);
+END METHOD
+
+
+
+METHOD ft_init_mlx(t_parser_resolution *resolution, void **mlx, void **mlx_win, t_data *img)
+	*mlx = mlx_init();	
+	*mlx_win = mlx_new_window(*mlx,resolution->r_w, resolution->r_h, "miniRT");
+	img->img = mlx_new_image(*mlx,resolution->r_w, resolution->r_h);
+	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, &img->endian);
+END METHOD
+
+
+
+
+
+
+
+METHOD ft_find_next_sphere(t_list_minirt *previous_sphere, t_list_minirt *head)
+	t_list_minirt *lst;	
+
+	if (!previous_sphere)
+		lst = head;
+	else
+		lst = previous_sphere->next;
+	while (lst)
+	{
+		if (lst->content->parser_sphere.sp == 1)
+			break;
+		lst = lst->next;
+	}
+	return (lst);
 END METHOD

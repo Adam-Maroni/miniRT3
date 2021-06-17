@@ -5,11 +5,12 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <math.h>
+# include <limits.h>
 # include "miniLibX/mlx.h"
 # include "gnl/get_next_line.h"
 # include "libft/libft.h"
-# include <limits.h>
 # define LINES 66
+# define INFINITY 1000000
 
 typedef struct s_parser_resolution{
 	int r;
@@ -148,6 +149,11 @@ typedef struct s_int3{
 	int y;
 	int z;
 }	t_int3;
+
+typedef struct s_int2{
+	int t1;
+	int t2;
+}	t_int2;
 
 
 
