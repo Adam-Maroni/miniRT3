@@ -143,11 +143,11 @@ typedef struct s_color{
 	int b;
 }	t_color;
 
-typedef struct s_vector{
+typedef struct s_int3{
 	int x;
 	int y;
 	int z;
-}	t_vector;
+}	t_int3;
 
 
 
