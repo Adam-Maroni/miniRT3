@@ -71,12 +71,14 @@ END METHOD
 
 
 
-METHOD ft_traceray(t_parser_camera *camera, t_int3 *point, int tmin, int tmax, t_list_minirt *head)
-	t_parser_sphere *closest_sphere = NULL;
+METHOD ft_traceray(t_parser_camera *camera, t_int3 *point, int tmin, int tmax, t_list_minirt *head, t_color *background_color)
+	t_list_minirt *closest_sphere = NULL;
 	int closest_t = INFINITY
 	t_int2 *solutions;
 	t_list_minirt *current_sphere = NULL;
+	t_color *rt;
 
+	rt = (t_color*)ft_calloc(sizeof(t_color),1);
 	WHILE ((current_sphere = ft_find_next_sphere(current_sphere, head)))
 		solutions = ft_intersect_ray_with_sphere(camera, point, current_sphere)
 		IF (solutions->t1 >= tmin && solutions->t1 <= tmax && solutions->t1 < closest_t)
@@ -90,9 +92,10 @@ METHOD ft_traceray(t_parser_camera *camera, t_int3 *point, int tmin, int tmax, t
 	END WHILE
 	FREE(solutions);
 	IF (closest_sphere == NULL)
-		RETURN(background_color)
-	END IF
-	RETURN (closest_sphere.color)
+		rt = background_color;
+	ELSE
+		rt = ft_get_sphere_color(t_list_minirt *current_sphere);
+	return (rt);
 END METHOD
 
 
@@ -104,7 +107,7 @@ METHOD ft_intersect_ray_with_sphere(t_parser_camera *camera, t_int3 *point, t_pa
 	camera_to_sphere.z = sphere.sp_z - camera.pov_z;
 	int a = ft_dot_product(point,point);
 	int b = 2 * ft_dot_product(camera_to_sphere, point);
-	int c = ft_dot_product(camera_to_sphere, camera_to_sphere) - camera.r * camera.r;
+	int c = ft_dot_product(camera_to_sphere, camera_to_sphere) - sphere.r * sphere.r;
 	int delta = (b * b) - (4 * a * c);
 	IF (delta < 0)
 		solutions->t1 = INFINITY;
