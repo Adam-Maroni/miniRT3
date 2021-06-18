@@ -221,5 +221,13 @@ int ft_check_for_mandatory_ambient(t_list_minirt *head);
 int ft_check_for_mandatory_camera(t_list_minirt *head);
 int ft_check_for_mandatory_light(t_list_minirt *head);
 int ft_check_for_mandatory(t_list_minirt **head);
+
+void	ft_raytracing(t_list_minirt *head);
+t_list_minirt	*ft_look_for_camera(t_list_minirt *lst);
+t_list_minirt *ft_look_for_resolution(t_list_minirt *lst);
+t_int3 ft_canvas_to_viewport(int x, int y, t_parser_camera *camera, t_parser_resolution *resolution);
+t_int3 *ft_calculate_viewport(t_parser_camera *camera);
+int	ft_deg_to_rad(int deg);
+t_int2 *ft_intersect_ray_with_sphere(t_parser_camera *camera, t_int3 *point, t_parser_sphere *sphere);
 #endif
 

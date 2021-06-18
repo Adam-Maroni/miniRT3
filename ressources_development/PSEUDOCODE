@@ -50,6 +50,7 @@ METHOD ft_canvas_to_viewport(int x, int y, t_parser_camera *camera, t_parser_res
 	rt.x = x * rt.x / resolution.w;
 	rt.y = y * rt.y / resolution.h;
 	rt.z = rt.z
+	return (rt);
 END METHOD
 
 METHOD ft_calculate_viewport(t_parser_camera *camera)

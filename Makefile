@@ -13,7 +13,7 @@ SRC_GNL = ./gnl/get_next_line.c\
 
 SRC_UTILS = utils/*.c
 
-SRC_ALL = $(SRC_GNL) $(SRC_UTILS)
+SRC_ALL = $(SRC_GNL) $(SRC_UTILS) raytracing/*.c
 
 OUT = minirt
 
