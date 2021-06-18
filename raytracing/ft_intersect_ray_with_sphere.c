@@ -11,6 +11,11 @@ t_int2 *ft_intersect_ray_with_sphere(t_list_minirt *camera, t_int3 *point, t_lis
 	int b = 2 * ft_dot_product(&camera_to_sphere, point);
 	int c = ft_dot_product(&camera_to_sphere, &camera_to_sphere) - ft_square(sphere->content->parser_sphere.sp_d / 2);
 	int delta = (b * b) - (4 * a * c);
+	/* printf ("%d\n", a);
+	printf ("%d\n", b);
+	printf ("%d\n", c);
+	printf ("%d\n", delta);
+	*/
 	if (delta < 0)
 	{
 		solutions->t1 = (int)INFINITY;
