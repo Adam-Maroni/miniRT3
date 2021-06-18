@@ -8,8 +8,8 @@ t_int2 *ft_intersect_ray_with_sphere(t_list_minirt *camera, t_int3 *point, t_lis
 	camera_to_sphere.y = sphere->content->parser_sphere.sp_y - camera->content->parser_camera.c_pov_y;
 	camera_to_sphere.z = sphere->content->parser_sphere.sp_z - camera->content->parser_camera.c_pov_z;
 	int a = ft_dot_product(point,point);
-	int b = 2 * ft_dot_product(camera_to_sphere, point);
-	int c = ft_dot_product(camera_to_sphere, camera_to_sphere) - ft_square(sphere->content->parser_sphere.sp_d / 2);
+	int b = 2 * ft_dot_product(&camera_to_sphere, point);
+	int c = ft_dot_product(&camera_to_sphere, &camera_to_sphere) - ft_square(sphere->content->parser_sphere.sp_d / 2);
 	int delta = (b * b) - (4 * a * c);
 	if (delta < 0)
 	{

@@ -224,14 +224,22 @@ int ft_check_for_mandatory(t_list_minirt **head);
 void	ft_raytracing(t_list_minirt *head);
 t_list_minirt	*ft_look_for_camera(t_list_minirt *lst);
 t_list_minirt *ft_look_for_resolution(t_list_minirt *lst);
-t_int3 *ft_canvas_to_viewport(int x, int y, t_parser_camera *camera, t_parser_resolution *resolution);
-t_int3 *ft_calculate_viewport(t_parser_camera *camera);
+t_int3 *ft_canvas_to_viewport(int x, int y, t_list_minirt *camera, t_list_minirt *resolution);
+t_int3 *ft_calculate_viewport(t_list_minirt *camera);
 int	ft_deg_to_rad(int deg);
 t_int2 *ft_intersect_ray_with_sphere(t_list_minirt *camera, t_int3 *point, t_list_minirt *sphere);
 void ft_init_mlx(t_list_minirt *resolution, void **mlx, void **mlx_win, t_data *img);
 t_list_minirt *ft_find_next_sphere(t_list_minirt *previous_sphere, t_list_minirt *head);
-t_color *ft_traceray(t_parser_camera *camera, t_int3 *point, int tmin, int tmax, t_list_minirt *head, t_color *background_color);
+t_color *ft_traceray(t_list_minirt *camera, t_int3 *point, int tmin, int tmax, t_list_minirt *head, t_color *background_color);
 t_color *ft_get_sphere_color(t_list_minirt *sphere);
 int ft_square(int i);
+char	conversion_hex_table(unsigned long input, char c);
+char	*int2hexstring(unsigned long input, char c, size_t size);
+unsigned long ft_t_color_to_ul(t_color *input);
+int ft_hex_to_int_table(char c);
+unsigned long ft_hexstring_to_ul(char *input);
+int	ft_rt_min_max(int min, int max, int input);
+int    ft_dot_product(t_int3 *a, t_int3 *b);
+void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 #endif
 

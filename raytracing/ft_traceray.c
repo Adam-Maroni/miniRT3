@@ -1,6 +1,6 @@
 #include "../minirt.h"
 
-t_color *ft_traceray(t_parser_camera *camera, t_int3 *point, int tmin, int tmax, t_list_minirt *head, t_color *background_color)
+t_color *ft_traceray(t_list_minirt *camera, t_int3 *point, int tmin, int tmax, t_list_minirt *head, t_color *background_color)
 {
 	t_list_minirt *closest_sphere = NULL;
 	int closest_t = (int)INFINITY;
