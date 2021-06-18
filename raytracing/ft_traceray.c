@@ -4,7 +4,7 @@ t_color *ft_traceray(t_list_minirt *camera, t_int3 *point, int tmin, int tmax, t
 {
 	t_list_minirt *closest_sphere = NULL;
 	int closest_t = (int)INFINITY;
-	t_int2 *solutions;
+	t_int2 *solutions = NULL;
 	t_list_minirt *current_sphere = NULL;
 	t_color *rt = NULL;
 
@@ -21,7 +21,7 @@ t_color *ft_traceray(t_list_minirt *camera, t_int3 *point, int tmin, int tmax, t
 	if (closest_sphere == NULL)
 		rt = background_color;
 	else
-		rt = ft_get_sphere_color(current_sphere);
+		rt = ft_get_sphere_color(closest_sphere);
 	return (rt);
 }
 

@@ -10,8 +10,9 @@ void	ft_raytracing(t_list_minirt *head)
 	t_color *color = NULL;
 	int x;
 	int y;
-	t_color black = {255,0,0,0};
-	t_color *background_color = &black;
+	t_color *background_color = (t_color*)ft_calloc(sizeof(t_color),1);
+	t_color black = {0,0,0,0};
+	*background_color = black;
 
 	mlx = NULL;
 	mlx_win = NULL;
@@ -28,7 +29,10 @@ void	ft_raytracing(t_list_minirt *head)
 			{
 				t_int3 *point = ft_canvas_to_viewport(x,y,camera, resolution);
 				color = ft_traceray(camera, point,1,(int)INFINITY, head, background_color);
-				ft_mlx_pixel_put(&img, x, y, ft_t_color_to_ul(color));
+				//Là il faut traduire x et y dans leur coordonnée axées haut gauche
+				int sx = resolution->content->parser_resolution.r_w / 2 + x;
+				int sy = resolution->content->parser_resolution.r_h / 2 + y;
+				ft_mlx_pixel_put(&img, sx, sy, (int)ft_t_color_to_ul(color));
 				y++;
 			}
 		x++;
