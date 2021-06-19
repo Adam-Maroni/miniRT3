@@ -1,3 +1,4 @@
+Probleme avec la conversion de l'hexa vers le ul (les derniers 0 sont manquants)
 TERMINER ft_traceray
 REVOIR La partie du cours sur le viewport
 COMMENCER a appliquer les cours de Gabriel Gambetta

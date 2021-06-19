@@ -1,6 +1,6 @@
 #include "../minirt.h"
 
-int ft_square(int i)
+float ft_square(float i)
 {
 	return (i * i);
 }
