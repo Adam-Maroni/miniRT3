@@ -1,6 +1,6 @@
 #include "../minirt.h"
 
-t_color *ft_traceray(t_list_minirt *camera, t_float3 *point, int tmin, int tmax, t_list_minirt *head, t_color *background_color)
+t_color *ft_traceray(t_list_minirt *camera, t_float3 *direction, int tmin, int tmax, t_list_minirt *head, t_color *background_color)
 {
 	t_list_minirt *closest_sphere = NULL;
 	int closest_t = (int)INFINITY;
@@ -10,7 +10,7 @@ t_color *ft_traceray(t_list_minirt *camera, t_float3 *point, int tmin, int tmax,
 
 	while ((current_sphere = ft_find_next_sphere(current_sphere, head)))
 	{
-		solutions = ft_intersect_ray_with_sphere(camera, point, current_sphere);
+		solutions = ft_intersect_ray_with_sphere(camera, direction, current_sphere);
 		if (solutions->t1 >= tmin && solutions->t1 <= tmax && solutions->t1 < closest_t)
 		{
 			closest_t = solutions->t1;
