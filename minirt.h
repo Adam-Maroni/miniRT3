@@ -246,11 +246,12 @@ t_list_minirt *ft_find_next_light(t_list_minirt *previous_light, t_list_minirt *
 t_float3 ft_float3_minus_float3(t_float3 *a, t_float3 *b);
 int ft_get_norm(t_float3 *i);
 t_float3 ft_get_sphere_center(t_list_minirt *sphere);
-t_float3	ft_int_times_float3(int a, t_float3 *b);
+t_float3	ft_float_times_float3(float a, t_float3 *b);
 t_float3 ft_get_light_position(t_list_minirt *light);
 float ft_compute_lighting(t_float3 *p, t_float3 *n, t_list_minirt *head);
 t_float3 ft_get_camera_position(t_list_minirt *camera);
 t_float3 ft_float3_plus_float3(t_float3 *a, t_float3 *b);
+t_color	ft_float_times_t_color(t_color *a, float b);
 #endif
 
 
