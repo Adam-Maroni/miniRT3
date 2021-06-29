@@ -244,7 +244,7 @@ void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 t_list_minirt *ft_find_next_ambient(t_list_minirt *previous_light, t_list_minirt *head);
 t_list_minirt *ft_find_next_light(t_list_minirt *previous_light, t_list_minirt *head);
 t_float3 ft_float3_minus_float3(t_float3 *a, t_float3 *b);
-int ft_get_norm(t_float3 *i);
+float ft_get_norm(t_float3 *i);
 t_float3 ft_get_sphere_center(t_list_minirt *sphere);
 t_float3	ft_float_times_float3(float a, t_float3 *b);
 t_float3 ft_get_light_position(t_list_minirt *light);

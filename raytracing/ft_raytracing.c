@@ -11,7 +11,7 @@ void	ft_raytracing(t_list_minirt *head)
 	int x;
 	int y;
 	t_color *background_color = (t_color*)ft_calloc(sizeof(t_color),1);
-	t_color black = {0,0,0,0};
+	t_color black = {255,0,0,0};
 	*background_color = black;
 
 	mlx = NULL;

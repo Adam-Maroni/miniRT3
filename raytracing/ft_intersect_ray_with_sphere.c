@@ -18,8 +18,8 @@ t_float2 *ft_intersect_ray_with_sphere(t_list_minirt *camera, t_float3 *directio
 	*/
 	if (delta < 0)
 	{
-		solutions->t1 = (int)INFINITY;
-		solutions->t2 = (int)INFINITY;
+		solutions->t1 = (float)INFINITY;
+		solutions->t2 = (float)INFINITY;
 	}
 	else
 	{

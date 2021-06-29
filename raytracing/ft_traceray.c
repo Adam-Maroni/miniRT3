@@ -3,7 +3,7 @@
 int ft_traceray(t_list_minirt *camera, t_float3 *direction, int tmin, int tmax, t_list_minirt *head, t_color *background_color)
 {
 	t_list_minirt *closest_sphere = NULL;
-	int closest_t = (int)INFINITY;
+	float closest_t = (float)INFINITY;
 	t_float2 *solutions = NULL;
 	t_list_minirt *current_sphere = NULL;
 	t_float3 p;
