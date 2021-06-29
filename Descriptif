@@ -8,18 +8,24 @@ DESCRIPTIFS DES FICHIERS:
 	tests/main_tester_parsing_linkedlist.c = test de parsing avec linked list
 
 
+
+
+
 DESCRPITIF DES FONCTIONS:
-	//Prend en entree un fichier.rt et retourne le premier element d'une liste chainee dont les noeuds sont le parsings des lignes.
-	FT_PARSING
+	FT_PARSING: Prend en entree un fichier.rt et retourne le premier element d'une liste chainee dont les noeuds sont le parsings des lignes.
 	{
 		LIRE le fichier ligne par ligne
-		SI la ligne est correcte
+			SI la ligne est correcte
 			INSERER l'objet dans la liste
-		SINON
+			SINON
 			LIBERER la memoire
 			Exit 0
 	}
-	ft_check_line: check la ligne et renvoie le parser mis en forme si correcte
+	FT_CHECK_LIne: check la ligne et renvoie le parser mis en forme si correcte
+	FT_GET_NORM: calcule la norme d'un float3 passé en entrée
+
+
+
 
 
 DESCRPITIF DES OBJETS:

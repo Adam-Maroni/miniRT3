@@ -230,7 +230,7 @@ int	ft_deg_to_rad(int deg);
 t_float2 *ft_intersect_ray_with_sphere(t_list_minirt *camera, t_float3 *direction, t_list_minirt *sphere);
 void ft_init_mlx(t_list_minirt *resolution, void **mlx, void **mlx_win, t_data *img);
 t_list_minirt *ft_find_next_sphere(t_list_minirt *previous_sphere, t_list_minirt *head);
-t_color *ft_traceray(t_list_minirt *camera, t_float3 *direction, int tmin, int tmax, t_list_minirt *head, t_color *background_color);
+int ft_traceray(t_list_minirt *camera, t_float3 *direction, int tmin, int tmax, t_list_minirt *head, t_color *background_color);
 t_color *ft_get_sphere_color(t_list_minirt *sphere);
 float ft_square(float i);
 char	conversion_hex_table(unsigned long input, char c);
@@ -241,5 +241,18 @@ unsigned long ft_hexstring_to_ul(char *input);
 int	ft_rt_min_max(int min, int max, int input);
 float    ft_dot_product(t_float3 *a, t_float3 *b);
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
+t_list_minirt *ft_find_next_ambient(t_list_minirt *previous_light, t_list_minirt *head);
+t_list_minirt *ft_find_next_light(t_list_minirt *previous_light, t_list_minirt *head);
+t_float3 ft_float3_minus_float3(t_float3 *a, t_float3 *b);
+int ft_get_norm(t_float3 *i);
+t_float3 ft_get_sphere_center(t_list_minirt *sphere);
+t_float3	ft_int_times_float3(int a, t_float3 *b);
+t_float3 ft_get_light_position(t_list_minirt *light);
+float ft_compute_lighting(t_float3 *p, t_float3 *n, t_list_minirt *head);
+t_float3 ft_get_camera_position(t_list_minirt *camera);
+t_float3 ft_float3_plus_float3(t_float3 *a, t_float3 *b);
 #endif
+
+
+
 

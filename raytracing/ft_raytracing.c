@@ -7,7 +7,7 @@ void	ft_raytracing(t_list_minirt *head)
 	t_data img;
 	t_list_minirt *camera = NULL;
 	t_list_minirt *resolution = NULL;
-	t_color *color = NULL;
+	int color;
 	int x;
 	int y;
 	t_color *background_color = (t_color*)ft_calloc(sizeof(t_color),1);
@@ -32,12 +32,11 @@ void	ft_raytracing(t_list_minirt *head)
 				//Là il faut traduire x et y dans leur coordonnée axées haut gauche
 				int sx = resolution->content->parser_resolution.r_w / 2 + x;
 				int sy = resolution->content->parser_resolution.r_h / 2 + y;
-				ft_mlx_pixel_put(&img, sx, sy, (int)ft_t_color_to_ul(color));
+				ft_mlx_pixel_put(&img, sx, sy, color);
 				y++;
 			}
 		x++;
 	}
-	free(color);
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
 }
