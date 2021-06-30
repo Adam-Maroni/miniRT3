@@ -17,6 +17,7 @@ float ft_compute_lighting(t_float3 p, t_float3 n, t_list_minirt *head,  float tm
 		l = ft_get_light_position(light);
 		l = ft_float3_minus_float3(l,p);
 		tmin = 0.001;
+		tmax = 1;
 		ft_closest_intersection(p, l, tmin, tmax, head, &shadow_sphere);
 		if (shadow_sphere)
 			continue;
