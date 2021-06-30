@@ -1,6 +1,6 @@
 #include "../minirt.h"
 
-float ft_compute_lighting(t_float3 *p, t_float3 *n, t_list_minirt *head, t_list_minirt *camera, t_float3 *direction, float tmin, float tmax)
+float ft_compute_lighting(t_float3 p, t_float3 n, t_list_minirt *head,  float tmin, float tmax)
 {
 	//besoin des coordonnées du point d'intersection et de la normal par rapport à ce point
 	float i = 0;
@@ -14,14 +14,15 @@ float ft_compute_lighting(t_float3 *p, t_float3 *n, t_list_minirt *head, t_list_
 		i += light->content->parser_ambient.a_r; 
 	while ((light = ft_find_next_light(light, head)))
 	{
-		ft_closest_intersection(camera, direction, tmin, tmax, head, &shadow_sphere);
+		l = ft_get_light_position(light);
+		l = ft_float3_minus_float3(l,p);
+		tmin = 0.001;
+		ft_closest_intersection(p, l, tmin, tmax, head, &shadow_sphere);
 		if (shadow_sphere)
 			continue;
-		l = ft_get_light_position(light);
-		l = ft_float3_minus_float3(&l,p);
-		int n_dot_l = ft_dot_product(n,&l);
+		int n_dot_l = ft_dot_product(n,l);
 		if (n_dot_l > 0)
-			i += light->content->parser_light.l_r * n_dot_l / (ft_get_norm(n) * ft_get_norm(&l));
+			i += light->content->parser_light.l_r * n_dot_l / (ft_get_norm(n) * ft_get_norm(l));
 	}
 	return (i);
 }

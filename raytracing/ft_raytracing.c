@@ -28,7 +28,7 @@ void	ft_raytracing(t_list_minirt *head)
 			while (y <= resolution->content->parser_resolution.r_h / 2)
 			{
 				t_float3 *direction = ft_canvas_to_viewport(x,y,camera, resolution);
-				color = ft_traceray(camera, direction,1,(float)INFINITY, head, background_color);
+				color = ft_traceray(camera, *direction,1,(float)INFINITY, head, background_color);
 				//Là il faut traduire x et y dans leur coordonnée axées haut gauche
 				int sx = resolution->content->parser_resolution.r_w / 2 + x;
 				int sy = resolution->content->parser_resolution.r_h / 2 + y;

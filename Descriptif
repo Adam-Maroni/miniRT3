@@ -23,6 +23,7 @@ DESCRPITIF DES FONCTIONS:
 	}
 	FT_CHECK_LIne: check la ligne et renvoie le parser mis en forme si correcte
 	FT_GET_NORM: calcule la norme d'un float3 passé en entrée
+	FT_GET_CAMERA_POSITION: Extrait de l'élément "camera" ses coordonnées.
 
 
 
