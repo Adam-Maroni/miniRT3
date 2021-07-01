@@ -1,4 +1,7 @@
 IMPLEMENTER la matrice de rotation "camera_to_world"
+	(https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays/generating-camera-rays)
+	(https://gabrielgambetta.com/computer-graphics-from-scratch/05-extending-the-raytracer.html)
+	(http://www.codinglabs.net/article_world_view_projection_matrix.aspx)
 PRENDRE en compte les couleurs des lumiere pour notre scene
 REFORMATER le Makefile
 
