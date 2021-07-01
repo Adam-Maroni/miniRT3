@@ -1,6 +1,5 @@
-CHANGE "point" to "direction"
-TERMINER ft_traceray
-REVOIR La partie du cours sur le viewport
-COMMENCER a appliquer les cours de Gabriel Gambetta
+CORRIGER le probleme de l'image "inversee"
+IMPLEMENTER la matrice de rotation "camera_to_world"
+PRENDRE en compte les couleurs des lumiere pour notre scene
 REFORMATER le Makefile
 
