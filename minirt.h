@@ -223,7 +223,7 @@ int ft_check_for_mandatory(t_list_minirt **head);
 
 
 t_float3 *ft_calculate_viewport(t_list_minirt *camera);
-t_float3 *ft_canvas_to_viewport(int x, int y, t_list_minirt *camera, t_list_minirt *resolution);
+t_float3 ft_canvas_to_viewport(int x, int y, t_list_minirt *camera, t_list_minirt *resolution);
 float ft_closest_intersection(t_float3 origin, t_float3 direction, float tmin, float tmax, t_list_minirt *head, t_list_minirt **closest_sphere);
 float ft_compute_lighting(t_float3 p, t_float3 n, t_list_minirt *head,  float tmin, float tmax);
 int	ft_deg_to_rad(int deg);
@@ -254,6 +254,8 @@ unsigned long ft_t_color_to_ul(t_color *input);
 int ft_traceray(t_list_minirt *camera, t_float3 direction, float tmin, float tmax, t_list_minirt *head, t_color *background_color);
 char	conversion_hex_table(unsigned long input, char c);
 char	*int2hexstring(unsigned long input, char c, size_t size);
+t_float3 ft_get_camera_orientation(t_list_minirt *camera);
+t_float3 ft_float3_times_float3(t_float3 a, t_float3 b);
 #endif
 
 
