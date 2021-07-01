@@ -1,4 +1,3 @@
-CORRIGER le probleme de l'image "inversee"
 IMPLEMENTER la matrice de rotation "camera_to_world"
 PRENDRE en compte les couleurs des lumiere pour notre scene
 REFORMATER le Makefile
