@@ -223,7 +223,6 @@ int ft_check_for_mandatory(t_list_minirt **head);
 
 
 t_float3 *ft_calculate_viewport(t_list_minirt *camera);
-t_float3 ft_canvas_to_viewport(int x, int y, t_list_minirt *camera, t_list_minirt *resolution);
 float ft_closest_intersection(t_float3 origin, t_float3 direction, float tmin, float tmax, t_list_minirt *head, t_list_minirt **closest_sphere);
 float ft_compute_lighting(t_float3 p, t_float3 n, t_list_minirt *head,  float tmin, float tmax);
 float	ft_deg_to_rad(int deg);
@@ -256,6 +255,19 @@ char	conversion_hex_table(unsigned long input, char c);
 char	*int2hexstring(unsigned long input, char c, size_t size);
 t_float3 ft_get_camera_orientation(t_list_minirt *camera);
 t_float3 ft_float3_times_float3(t_float3 a, t_float3 b);
+
+
+
+
+
+typedef float (*t_pt_matrix_4by1)[4][1];
+typedef float (*t_pt_matrix_4by4)[4][4];
+t_pt_matrix_4by4 ft_get_transfo_matrix(t_list_minirt *camera);
+t_pt_matrix_4by1 ft_canvas_to_viewport(int x, int y, t_list_minirt *camera, t_list_minirt *resolution);
+t_pt_matrix_4by1 ft_4_matrices_product(t_pt_matrix_4by4 matrix1, t_pt_matrix_4by1 matrix2);
+t_pt_matrix_4by4 ft_get_transfo_matrix(t_list_minirt *camera);
+void ft_init_matrix_4by1(t_pt_matrix_4by1 matrix);
+t_float3 ft_matrix4by1_to_float3(t_pt_matrix_4by1 matrix);
 #endif
 
 
