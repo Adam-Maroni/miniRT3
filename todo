@@ -1,4 +1,14 @@
-CORRIGER les memleaks dû a l'ajout de la matrice de transformation
-PRENDRE en compte les couleurs des lumiere pour notre scene
-REFORMATER le Makefile
+RAJOUTER les objets "plan" et "cylindre"
 
+PRENDRE en compte les couleurs des lumiere pour notre scene
+
+IMPLEMENTER:
+ Pressing ESC must close the window and quit the program cleanly.
+ Clicking on the red cross on the window’s frame must close the window and
+quit the program cleanly.
+ The use of images of the minilibX is strongly recommended.
+
+CORRIGER les memleaks dû a l'ajout de la matrice de transformation
+
+
+REFORMATER le Makefile
