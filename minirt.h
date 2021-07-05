@@ -260,14 +260,13 @@ t_float3 ft_float3_times_float3(t_float3 a, t_float3 b);
 
 
 
-typedef float (*t_pt_matrix_4by1)[4][1];
-typedef float (*t_pt_matrix_4by4)[4][4];
-t_pt_matrix_4by4 ft_get_transfo_matrix(t_list_minirt *camera);
-t_pt_matrix_4by1 ft_canvas_to_viewport(int x, int y, t_list_minirt *camera, t_list_minirt *resolution);
-t_pt_matrix_4by1 ft_4_matrices_product(t_pt_matrix_4by4 matrix1, t_pt_matrix_4by1 matrix2);
-t_pt_matrix_4by4 ft_get_transfo_matrix(t_list_minirt *camera);
-void ft_init_matrix_4by1(t_pt_matrix_4by1 matrix);
-t_float3 ft_matrix4by1_to_float3(t_pt_matrix_4by1 matrix);
+typedef float (t_matrix_4by1)[4][1];
+typedef float (t_matrix_4by4)[4][4];
+t_matrix_4by4 *ft_get_transfo_matrix(t_list_minirt *camera);
+t_matrix_4by1 *ft_canvas_to_viewport(int x, int y, t_list_minirt *camera, t_list_minirt *resolution);
+t_matrix_4by1 *ft_4_matrices_product(t_matrix_4by4 *matrix1, t_matrix_4by1 *matrix2);
+void ft_init_matrix_4by1(t_matrix_4by1 *matrix);
+t_float3 ft_matrix4by1_to_float3(t_matrix_4by1 *matrix);
 #endif
 
 

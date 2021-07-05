@@ -27,10 +27,9 @@ void	ft_raytracing(t_list_minirt *head)
 		y = -resolution->content->parser_resolution.r_h / 2;
 			while (y <= resolution->content->parser_resolution.r_h / 2)
 			{
-/*
-				t_pt_matrix_4by4 transfo_matrix = ft_get_transfo_matrix(camera);
+
+				t_matrix_4by4 *transfo_matrix = ft_get_transfo_matrix(camera);
 				t_float3 direction = ft_matrix4by1_to_float3(ft_4_matrices_product(transfo_matrix, ft_canvas_to_viewport(x,y,camera, resolution)));
-*/
 				color = ft_traceray(camera, direction,1,(float)INFINITY, head, background_color);
 				//Là il faut traduire x et y dans leur coordonnée axées haut gauche
 				int sx = (resolution->content->parser_resolution.r_w / 2 + x); 
