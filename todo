@@ -1,4 +1,5 @@
 RAJOUTER les objets "plan" et "cylindre"
+INVERSER b et a dans ft_float_times_t_color
 
 PRENDRE en compte les couleurs des lumiere pour notre scene
 
