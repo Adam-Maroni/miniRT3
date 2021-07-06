@@ -75,7 +75,7 @@ float ft_closest_intersection(t_float3 origin, t_float3 direction, float tmin, f
 			closest_t = solutions->t2;
 			*closest_shape = current_shape;
 		}
-		//*************************************
+		//-------------------------------------
 	}
 	free(solutions);
 	return (closest_t);
