@@ -267,6 +267,14 @@ t_matrix_4by1 *ft_canvas_to_viewport(int x, int y, t_list_minirt *camera, t_list
 t_matrix_4by1 *ft_4_matrices_product(t_matrix_4by4 *matrix1, t_matrix_4by1 *matrix2);
 void ft_init_matrix_4by1(t_matrix_4by1 *matrix);
 t_float3 ft_matrix4by1_to_float3(t_matrix_4by1 *matrix);
+
+int ft_is_a_shape(t_list_minirt *lst);
+int ft_is_a_sphere(t_list_minirt *lst);
+int ft_is_a_plane(t_list_minirt *lst);
+int ft_is_a_cylinder(t_list_minirt *lst);
+t_list_minirt *ft_find_next_shape(t_list_minirt *previous_shape, t_list_minirt *head);
+t_float3 ft_get_shape_center(t_list_minirt *shape);
+t_color *ft_get_shape_color(t_list_minirt *shape);
 #endif
 
 

@@ -82,15 +82,6 @@ float ft_closest_intersection(t_float3 origin, t_float3 direction, float tmin, f
 }
 
 
-//Protoype de nouveau ft_traceray, Prend en entree une direction et renvoie en retour une couleur
-int ft_traceray_new()
-{
-	t_list_minirt *current_object;
-	current_object = NULL;
-
-	
-}
-
 
 int ft_traceray()
 {
