@@ -27,3 +27,4 @@ t_float2 *ft_intersect_ray_with_sphere(t_float3 origin, t_float3 direction, t_fl
 	return (solutions);
 }
 
+

@@ -16,7 +16,7 @@ int ft_traceray(t_list_minirt *camera, t_float3 direction, float tmin, float tma
 	p = ft_float3_plus_float3( ft_get_camera_position(camera), ft_float_times_float3(closest_t, direction) );
 	n = ft_float3_minus_float3( p, shape_position );
 	n = ft_float_times_float3( 1 / ft_get_norm(n) , n );
-	rt_color = ft_float_times_t_color(ft_get_shape_color(closest_shape), ft_compute_lighting(p,n,head,tmin, tmax));
+	rt_color = ft_float_times_t_color(ft_get_shape_color(closest_shape, background_color), ft_compute_lighting(p,n,head,tmin, tmax));
 	return ((int)ft_t_color_to_ul(&rt_color));
 }
 

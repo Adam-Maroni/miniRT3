@@ -1,13 +1,15 @@
 RAJOUTER les objets "plan" et "cylindre"
 INVERSER b et a dans ft_float_times_t_color
-
-PRENDRE en compte les couleurs des lumiere pour notre scene
+RAJOUTER la fonction ft_get_shape_center dans ft_intersect_ray_with_sphere pour diminuer le nombre d'arguments en entree
 
 IMPLEMENTER:
  Pressing ESC must close the window and quit the program cleanly.
  Clicking on the red cross on the window’s frame must close the window and
 quit the program cleanly.
  The use of images of the minilibX is strongly recommended.
+
+PRENDRE en compte les couleurs des lumiere pour notre scene
+
 
 CORRIGER les memleaks dû a l'ajout de la matrice de transformation
 

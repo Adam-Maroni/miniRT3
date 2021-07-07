@@ -13,9 +13,9 @@ float ft_closest_intersection(t_float3 origin, t_float3 direction, float tmin, f
 	{
 		if (ft_is_a_sphere(current_shape))
 			solutions = ft_intersect_ray_with_sphere(origin, direction, ft_get_shape_center(current_shape), current_shape);
+		else if (ft_is_a_plane(current_shape))
+			solutions = ft_intersect_ray_with_plane(origin, direction, current_shape);
 /*
-		else if (ft_is_plane(current_object))
-			solutions = ft_intersect_ray_with_plane();
 		else if (ft_is_cylinder(current_object))
 			solutions = ft_intersect_ray_with_cylinder();
 */
