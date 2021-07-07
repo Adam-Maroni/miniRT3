@@ -12,6 +12,11 @@ int ft_traceray(t_list_minirt *camera, t_float3 direction, float tmin, float tma
 	if (closest_shape == NULL)
 		return ((int)ft_t_color_to_ul(background_color));
 	//The following calculus seems to be the same doesn't matter the kind of shape
+	//WRONG!!!
+/*
+	Compare the n value obtained here and the one calculated inside intersect_with_plane.
+	Futhermore, ensure you understand what this calculus means inside Ganbetta course.
+*/
 	shape_position = ft_get_shape_center(closest_shape);
 	p = ft_float3_plus_float3( ft_get_camera_position(camera), ft_float_times_float3(closest_t, direction) );
 	n = ft_float3_minus_float3( p, shape_position );
