@@ -21,7 +21,7 @@ float ft_compute_lighting(t_float3 p, t_float3 n, t_list_minirt *head,  float tm
 		ft_closest_intersection(p, l, tmin, tmax, head, &shadow_sphere);
 		if (shadow_sphere)
 			continue;
-		int n_dot_l = ft_dot_product(n,l);
+		float n_dot_l = ft_dot_product(n,l);
 		if (n_dot_l > 0)
 			i += light->content->parser_light.l_r * n_dot_l / (ft_get_norm(n) * ft_get_norm(l));
 	}
