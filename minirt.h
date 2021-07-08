@@ -224,7 +224,7 @@ int ft_check_for_mandatory(t_list_minirt **head);
 
 t_float3 *ft_calculate_viewport(t_list_minirt *camera);
 float ft_closest_intersection(t_float3 origin, t_float3 direction, float tmin, float tmax, t_list_minirt *head, t_list_minirt **closest_sphere);
-float ft_compute_lighting(t_float3 p, t_float3 n, t_list_minirt *head,  float tmin, float tmax);
+float ft_compute_lighting(t_float3 p, t_float3 n, t_list_minirt *head);
 float	ft_deg_to_rad(int deg);
 float    ft_dot_product(t_float3 a, t_float3 b);
 t_list_minirt *ft_find_next_ambient(t_list_minirt *previous_light, t_list_minirt *head);
@@ -279,6 +279,7 @@ t_float3 ft_float3_divide_float3(t_float3 a, t_float3 b);
 t_float2 *ft_intersect_ray_with_plane(t_float3 origin, t_float3 direction, t_list_minirt *plane);
 t_float3 ft_get_plane_center(t_list_minirt *plane);
 t_color *ft_get_plane_color(t_list_minirt *plane);
+t_float3 ft_get_plane_normal(t_list_minirt *plane);
 #endif
 
 

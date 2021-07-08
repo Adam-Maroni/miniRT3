@@ -18,10 +18,21 @@ int ft_traceray(t_list_minirt *camera, t_float3 direction, float tmin, float tma
 	Futhermore, ensure you understand what this calculus means inside Ganbetta course.
 */
 	shape_position = ft_get_shape_center(closest_shape);
+	//On cherche les coordoonées du point observés
 	p = ft_float3_plus_float3( ft_get_camera_position(camera), ft_float_times_float3(closest_t, direction) );
-	n = ft_float3_minus_float3( p, shape_position );
+	
+
+
+
+// AJOUTTER ICI
+	if (ft_is_a_plane(closest_shape))
+		n = ft_get_plane_normal(closest_shape);
+	//sous entendu une sphere
+	else
+		n = ft_float3_minus_float3( p, shape_position );
+	//Normalize N
 	n = ft_float_times_float3( 1 / ft_get_norm(n) , n );
-	rt_color = ft_float_times_t_color(ft_get_shape_color(closest_shape, background_color), ft_compute_lighting(p,n,head,tmin, tmax));
+	rt_color = ft_float_times_t_color(ft_get_shape_color(closest_shape, background_color), ft_compute_lighting(p,n,head));
 	return ((int)ft_t_color_to_ul(&rt_color));
 }
 
