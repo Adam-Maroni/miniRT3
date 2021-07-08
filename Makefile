@@ -6,7 +6,7 @@ LIBFT_ARCHIVE = ./libft/libft.a
 LIB = $(MINILIBX_ARCHIVE) -lXext -lX11 -lm libft/libft.a
 MEM_CHECK = -g -fsanitize=address
 
-RT_FILE = ./rtfiles/1.rt
+RT_FILE = ./rtfiles/3.rt
 
 SRC_GNL = ./gnl/get_next_line.c\
 	  ./gnl/get_next_line_utils.c
