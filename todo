@@ -15,3 +15,4 @@ CORRIGER les memleaks dû a l'ajout de la matrice de transformation
 
 
 REFORMATER le Makefile
+METTRE en ordre le main.c
