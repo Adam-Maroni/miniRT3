@@ -1,5 +1,4 @@
-CORRIGER les problemes de ligne vides dans le parsing
-RAJOUTER les objets "plan" et "cylindre"
+RAJOUTER "cylindre"
 INVERSER b et a dans ft_float_times_t_color
 RAJOUTER la fonction ft_get_shape_center dans ft_intersect_ray_with_sphere pour diminuer le nombre d'arguments en entree
 

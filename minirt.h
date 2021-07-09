@@ -280,6 +280,7 @@ t_float2 *ft_intersect_ray_with_plane(t_float3 origin, t_float3 direction, t_lis
 t_float3 ft_get_plane_center(t_list_minirt *plane);
 t_color *ft_get_plane_color(t_list_minirt *plane);
 t_float3 ft_get_plane_normal(t_list_minirt *plane);
+int ft_is_line_empty(char *line);
 #endif
 
 

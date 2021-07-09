@@ -87,6 +87,8 @@ int ft_is_line_correct(char *line)
 		return (6);
 	if (ft_check_sphere(line))
 		return (7);
+	if (ft_is_line_empty(line))
+		return (8);
 	return (0);
 }
 
