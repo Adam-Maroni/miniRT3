@@ -276,11 +276,13 @@ t_list_minirt *ft_find_next_shape(t_list_minirt *previous_shape, t_list_minirt *
 t_float3 ft_get_shape_center(t_list_minirt *shape);
 t_color *ft_get_shape_color(t_list_minirt *shape, t_color *background_color);
 t_float3 ft_float3_divide_float3(t_float3 a, t_float3 b);
-t_float2 *ft_intersect_ray_with_plane(t_float3 origin, t_float3 direction, t_list_minirt *plane);
+t_float2 *ft_intersect_ray_with_plane(t_float3 origin, t_float3 direction, t_float3 center, t_float3 normal);
 t_float3 ft_get_plane_center(t_list_minirt *plane);
 t_color *ft_get_plane_color(t_list_minirt *plane);
 t_float3 ft_get_plane_normal(t_list_minirt *plane);
 int ft_is_line_empty(char *line);
+
+t_float2 *ft_intersect_ray_with_disk(t_float3 origin, t_float3 direction, t_float3 center, t_float3 normal,  float radius)
 #endif
 
 
