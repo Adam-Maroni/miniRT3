@@ -11,5 +11,7 @@ t_float3 ft_get_shape_center(t_list_minirt *shape)
 		return (ft_get_sphere_center(shape));	
 	if (ft_is_a_plane(shape))
 		return (ft_get_plane_center(shape));	
+	if (ft_is_a_cylinder(shape))
+		return (ft_get_cylinder_center(shape));	
 	return (rt);
 }

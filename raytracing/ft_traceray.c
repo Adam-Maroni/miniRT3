@@ -25,11 +25,10 @@ int ft_traceray(t_list_minirt *camera, t_float3 direction, float tmin, float tma
 
 
 // AJOUTTER ICI
-	if (ft_is_a_plane(closest_shape))
-		n = ft_get_plane_normal(closest_shape);
-	//sous entendu une sphere
-	else
+	if (ft_is_a_sphere(closest_shape))
 		n = ft_float3_minus_float3( p, shape_position );
+	else
+		n = ft_get_shape_normal(closest_shape);
 	//Normalize N
 	n = ft_float_times_float3( 1 / ft_get_norm(n) , n );
 	rt_color = ft_float_times_t_color(ft_get_shape_color(closest_shape, background_color), ft_compute_lighting(p,n,head));

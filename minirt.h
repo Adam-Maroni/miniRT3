@@ -282,7 +282,19 @@ t_color *ft_get_plane_color(t_list_minirt *plane);
 t_float3 ft_get_plane_normal(t_list_minirt *plane);
 int ft_is_line_empty(char *line);
 
-t_float2 *ft_intersect_ray_with_disk(t_float3 origin, t_float3 direction, t_float3 center, t_float3 normal,  float radius)
+t_float2 *ft_intersect_ray_with_disk(t_float3 origin, t_float3 direction, t_float3 center, t_float3 normal,  float radius);
+t_float3 ft_get_cylinder_normal(t_list_minirt *cylinder);
+t_float3 ft_get_shape_normal(t_list_minirt *shape);
+int ft_is_equal_float3(t_float3 a, t_float3 b);
+int ft_is_exist_float3(t_float3 a);
+t_list_minirt *ft_parsing(char *filepath);
+int ft_is_line_correct(char *line);
+void ft_switch_float2_values(t_float2 *a);
+void ft_init_float3(t_float3 *a, float value);
+t_float2 *ft_intersect_ray_with_cylinder_caps(t_float3 origin, t_float3 direction, t_float3 center, t_float3 normal, float radius, float height);
+t_float2 *ft_intersect_ray_with_cylinder(t_float3 origin, t_float3 direction, t_list_minirt *cylinder);
+t_float3 ft_get_cylinder_center(t_list_minirt *cylinder);
+t_color *ft_get_cylinder_color(t_list_minirt *cylinder);
 #endif
 
 
