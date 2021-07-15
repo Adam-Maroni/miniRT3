@@ -56,11 +56,11 @@ t_float2 *ft_intersect_ray_with_cylinder(t_float3 origin, t_float3 direction, t_
 	center = ft_get_shape_center(cylinder);
 	radius = cylinder->content->parser_cylinder.cy_d / 2;
 	height = cylinder->content->parser_cylinder.cy_h;
-	step = 1/1000;
+	step = 1/10;
 
 	//Intersect with caps
 	solutions = ft_intersect_ray_with_cylinder_caps(origin, direction, center, normal, radius, height);
-	//if (solutions->t1 < (float)INFINITY || solutions->t2 < (float)INFINITY)
+	if (solutions->t1 < (float)INFINITY || solutions->t2 < (float)INFINITY)
 		return (solutions);
 
 	//Intersect with side
@@ -74,7 +74,7 @@ t_float2 *ft_intersect_ray_with_cylinder(t_float3 origin, t_float3 direction, t_
 	if (solutions->t1 > solutions->t2)
 	{
 		ft_switch_float2_values(solutions);
-		center = ft_float3_plus_float3(center, ft_float_times_float3(height, normal));
+		//center = ft_float3_plus_float3(center, ft_float_times_float3(height, normal));
 	}
 	//Check if ray pass by cylinder's normal
 	t = solutions->t1;	
@@ -88,9 +88,11 @@ t_float2 *ft_intersect_ray_with_cylinder(t_float3 origin, t_float3 direction, t_
 				A = ft_float3_plus_float3(origin, ft_float_times_float3(t, direction));
 				break ;
 			}
-			t_prime += step;
+			t_prime = t_prime + step;
+			printf("%f\n", t);
+			printf("%f\n", t_prime);
 		}
-		t += step;
+		t = t + step;
 	}
 	//IF it does
 	if (ft_is_exist_float3(A))
