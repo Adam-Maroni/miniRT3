@@ -56,7 +56,7 @@ t_float2 *ft_intersect_ray_with_cylinder(t_float3 origin, t_float3 direction, t_
 	center = ft_get_shape_center(cylinder);
 	radius = cylinder->content->parser_cylinder.cy_d / 2;
 	height = cylinder->content->parser_cylinder.cy_h;
-	step = 1/10;
+	step = 0.1;
 
 	//Intersect with caps
 	solutions = ft_intersect_ray_with_cylinder_caps(origin, direction, center, normal, radius, height);
@@ -76,6 +76,7 @@ t_float2 *ft_intersect_ray_with_cylinder(t_float3 origin, t_float3 direction, t_
 		ft_switch_float2_values(solutions);
 		//center = ft_float3_plus_float3(center, ft_float_times_float3(height, normal));
 	}
+
 	//Check if ray pass by cylinder's normal
 	t = solutions->t1;	
 	while (t < solutions->t2)
@@ -89,8 +90,6 @@ t_float2 *ft_intersect_ray_with_cylinder(t_float3 origin, t_float3 direction, t_
 				break ;
 			}
 			t_prime = t_prime + step;
-			printf("%f\n", t);
-			printf("%f\n", t_prime);
 		}
 		t = t + step;
 	}
